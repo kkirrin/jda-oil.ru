@@ -1,0 +1,24 @@
+.btn_lk {
+    position: relative;
+}
+
+.modal_lk {
+    background-color: var(--white);
+    position: absolute;
+    padding: 16px;
+    right: 0;
+    opacity: 0;
+    display: none;
+    transition: all 0.9 ease-in-out;
+}
+
+.modal_lk.is-open {
+    display: block;
+    opacity: 1;
+}
+.modal_list {
+    display: flex;
+    flex-direction: column;
+    gap: 0x;
+    align-items: start;
+}

@@ -1,0 +1,28 @@
+
+.single-list * {transition: .4s linear;}
+.single-list {
+  padding: 0 10px;
+  margin: 0;
+  width: 20%;
+}
+.single-list li {
+  border-bottom: 1px solid #efefef;
+  padding: 10px 0;
+}
+.single-list p {
+  text-decoration: none;
+  color: #555;
+}
+.single-list li {
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 480px) {
+    .single-list * {transition: .4s linear;}
+    .single-list {
+        padding: 0 10px;
+        margin: 0;
+        width: 100%;
+    }   
+}

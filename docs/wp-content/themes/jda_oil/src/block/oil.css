@@ -1,0 +1,76 @@
+
+/* Секция МОТОРНОЕ МАСЛО */
+#oil__main .oil__list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+    padding-top: 51px;
+}
+
+#oil__main .oil__list .oil__list-item {
+    border: 1px solid var(--dark-green);
+    max-height: 485px;
+    display: flex;
+    flex-direction: column;
+}
+
+#oil__main .oil__list .oil__list-item .item-content{
+    border-top: 1px solid var(--dark-green);
+    border-bottom: 1px solid var(--dark-green);
+    display: flex;
+    flex-direction: column;
+    padding: 4px;
+}
+#oil__main .oil__list .oil__list-item .item-content .item-title{
+    color: rgb(13, 43, 0);
+    font-family: Involve;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 5px 10px;
+}
+#oil__main .oil__list .oil__list-item .item-content .item-list{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+#oil__main .oil__list .oil__list-item .item-content .item-list .list--first{
+    display: flex;
+    flex-direction: column;
+}
+#oil__main .oil__list .oil__list-item .item-content .item-list .list--second{
+    display: flex;
+    flex-direction: column;
+}
+
+#oil__main .oil__list .oil__list-item .item-img{
+    margin: 0 auto;
+    padding: 25px;
+}
+#oil__main .oil__list .oil__list-item .oil__list-item--buttons{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+}
+#oil__main .oil__list .oil__list-item .oil__list-item--price{
+    text-align: end;
+    padding: 10px;
+    border-bottom: 1px solid var(--dark-green);
+}
+
+#oil__main .oil__list {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 22px;
+}
+@media screen and (max-width: 769px) {
+    #oil__main .oil__list {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media screen and (max-width: 769px) {
+    #oil__main .oil__list {
+        grid-template-columns: repeat(1,1fr);
+    }
+}

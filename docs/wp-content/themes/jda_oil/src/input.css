@@ -1,0 +1,233 @@
+/* Импорт шрифтов */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+
+/* Импорт кастомных стилей для компонентов */
+@import './block/button.css';
+@import './block/menu-button.css';
+@import './block/menu.css';
+@import './block/scrool-top.css';
+@import './block/popup.css';
+@import './block/animateSocialsBtn.css';
+@import './block/oil.css';
+@import './block/news.css';
+@import './block/table.css';
+@import './block/modal.css';
+@import './block/single-list';
+@import './block/map.css';
+
+/* Импорт TailWind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Зарегистрируйте пользовательское семейство шрифтов и сообщите браузеру, где его найти. */
+
+
+:root {
+    --black: #000000;
+    --white: #fff;
+    --green: #247500;
+    --dark-green: #0D2B00;
+    --gray: #DDDDDD;
+
+    /* Длительность анимаций (указывать в секундах) */
+    --duration-add-animate-class: 2;
+    /* Должно быть столько же, сколько в переменной animate_time в файле js/module/add_class_for_animation.js */
+    --duration-hover: 0.5;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('../src/fonts/Inter/Inter-Regular.ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Involve';
+    src: url('../src/fonts/Involve/InvolveRegular/Involve-Regular.woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Involve';
+    src: url('../src/fonts/Involve/InvolveMedium/Involve-Medium.woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Involve';
+    src: url('../src/fonts/Involve/InvolveSemiBold/Involve-SemiBold.woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: var(--green) var(--dark-green);
+        font-family: 'Involve';
+    }
+
+    body {
+        font-family: 'Involve', sans-serif;
+        color: #262626;
+        background: linear-gradient(166deg, #FFF 5.27%, rgba(255, 255, 255, 0.00) 78.75%);
+        font-weight: 500;
+    }
+
+    h2 {
+        font-family: 'Involve';
+        font-weight: 400;
+        color: var(--white);
+        font-size: 140px;
+    }
+
+    h3 {
+        font-family: 'Involve';
+        font-weight: 400;
+        color: var(--dark-green);
+        font-size: clamp(1.875rem, 0.313rem + 4.167vw, 4.063rem);
+    }
+    p {
+        font-family: 'Involve';
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-[1440px]
+    }
+}
+
+
+[data-scroll] {
+    transition: opacity 1s;
+}
+
+[data-scroll="in"] {
+    opacity: 1;
+}
+
+[data-scroll="out"] {
+    opacity: 0;
+}
+
+/* Директивы классов */
+
+
+@media (min-width: 768px){
+    .container__special{
+      max-width: 768px;
+    }
+  }
+  
+  @media (min-width: 1024px){
+    .container__special{
+      max-width: 1024px;
+    }
+  }
+  
+  @media (min-width: 1280px){
+    .container__special{
+      max-width: 1280px;
+    }
+  }
+  
+  @media (min-width: 1440px){
+    .container__special{
+      max-width: 1440px;
+    }
+  }
+  
+  .container__special{
+    max-width: 1440px;
+  }
+
+/* Прочие классы */
+
+.lock {
+    overflow: hidden;
+}
+
+
+
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.text-line {
+    position: relative;
+}
+
+.text-line::before {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    content: '';
+    width: -webkit-fill-available;
+    background-color: var(--dark-green);
+}
+
+.important {
+    background-image: url('../src/img/pattern-3.png');
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.container__special {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+@media screen and (max-width: 480px) {
+    .container__special {
+        width: 100%;
+        padding: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    .important {
+        background-image: none;
+    }
+}
+
+@media (max-width: 1023px) {
+    .hero-bg img {
+        display: none;
+    }
+}
+
+.header-fix {
+    /* background: rgba(20, 19, 19, 0.8); */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    padding-bottom: 10px;
+}
+
+.title {
+    line-height: 85px !important;
+}
+
