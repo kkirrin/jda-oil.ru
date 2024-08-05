@@ -125,8 +125,8 @@
                     </button>
                     <h2 class="text-start text-dark-green z-10  md:text-4xl text-xl pb-7 font-bold">Выполните вход</h2>
 
-                    <div class="form-wrapper">
-                        <label>Электронная почта</label>
+                    <!-- <div class="form-wrapper"> -->
+                        <!-- <label>Электронная почта</label>
                         <input class="form__input" placeholder="Введите адрес электронной почты" />
 
                         <label>Пароль</label>
@@ -138,8 +138,9 @@
     
                         <a class="text-gray text-sm text-center popup-link" href="#popup4">
                             Забыли пароль?
-                        </a>
-                    </div>
+                        </a> -->
+                        <?php echo do_shortcode('[ultimatemember form_id="69"]'); ?>
+                    <!-- </div> -->
                 </div>
             </div>
         </section>
@@ -159,8 +160,8 @@
                         После рассмотрения заявки мы отправим вам подтверждение на почту
                     </p>
 
-                    <div class="form-wrapper">
-                        <label>Имя \ название компании*</label>
+                    <!-- <div class="form-wrapper"> -->
+                        <!-- <label>Имя \ название компании*</label>
                         <input class="form__input" placeholder="Представьтесь, пожалуйста" />
 
                         <label>Телефон*</label>
@@ -175,8 +176,9 @@
     
                         <a href="#popup1" class="text-gray text-sm text-center popup-link">
                             Или войти?
-                        </a>
-                    </div>
+                        </a> -->
+                        <?php echo do_shortcode('[ultimatemember form_id="68"]'); ?>
+                    <!-- </div> -->
                 </div>
             </div>
         </section>
@@ -238,7 +240,7 @@
 
 
 
-        <div class="pb-[20px]">
+        <div class="pb-[20px] bottom__info">
             <div class="container">
                 <div class="flex items-center justify-between text-gray md:flex-row pt-10 flex-col">
                     <div class="md:text-sm text-xs text-dark-green">
@@ -250,7 +252,6 @@
                 </div>    
             </div>
         </div>
-
 
     <script type="module" src="<?php echo get_template_directory_uri() . '/js/main.js'; ?>"></script>
 </body>

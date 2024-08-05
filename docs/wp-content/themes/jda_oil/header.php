@@ -78,8 +78,9 @@
                 </div>
 
                 <div class="w-full md:hidden sm:hidden block relative border border-gray">
-                    <input class="rounded-md bg-light-gray py-[18px] px-[60px] w-full" type="search" placeholder="Поиск...">
-                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons/search_gray.svg'; ?>" alt="Search" class="h-6 w-6 absolute top-1/2 left-5 transform -translate-y-1/2"/>
+                    <!-- <input class="rounded-md bg-light-gray py-[18px] px-[60px] w-full" type="search" placeholder="Поиск...">
+                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons/search_gray.svg'; ?>" alt="Search" class="h-6 w-6 absolute top-1/2 left-5 transform -translate-y-1/2"/> -->
+                    <?php echo do_shortcode('[fibosearch]'); ?>
                 </div>
 
                 
@@ -90,7 +91,7 @@
                             <a href="/" class="md:block sm:block hidden">
                                <img class="object-fill" src="<?php echo get_template_directory_uri() . '/src/img/logo.jpg'; ?>" alt="" >                           
                             </a>
-                            <a href="/?page_id=58" class="bg-green py-[18px] px-[50px] flex gap-[8px] btn__menu">
+                            <a href="/?page_id=101" class="bg-green py-[18px] px-[50px] flex gap-[8px] btn__menu">
                                 <img class="catalog-button-img-2"
                                     src="<?php echo get_template_directory_uri() . '/src/img/icons/catelog_white.svg'; ?>" width="20"
                                     height="20" alt="">
@@ -99,11 +100,12 @@
                             <div class="md:flex sm:flex hidden items-center">
                                 <div class="relative flex justify-evenly">
                                     <div>
-                                        <input class="rounded-md bg-light-gray py-[18px] px-[30px] hidden esm:hidden sm:flex" type="search" placeholder="Поиск по товарам...">
+                                        <!-- <input class="rounded-md bg-light-gray py-[18px] px-[30px] hidden esm:hidden sm:flex" type="search" placeholder="Поиск по товарам..."> -->
+                                        <?php echo do_shortcode('[fibosearch]'); ?>
                                     </div>
-                                    <div>
+                                    <!-- <div>
                                         <img src="<?php echo get_template_directory_uri() . '/src/img/icons/search_gray.svg'; ?>" alt="Search" class="h-6 w-6 absolute top-1/2 left-0 transform -translate-y-1/2"/>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -117,8 +119,9 @@
                                 </ul>
                             </div>
 
-                            <div class="flex">
-                                <a href="?page_id=59">
+                            <div class="flex" style="margin: 0 10px;">
+                                <!-- <a href="/?page_id=102"> -->
+                                <button href="<?php echo esc_url(wc_get_cart_url()); ?>" class="btn_cart relative flex items-center">
                                     <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">
                                         <g clip-path="url(#clip0_200_307)">
                                             <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -131,7 +134,25 @@
                                         </clipPath>
                                         </defs>
                                     </svg>
-                                </a>
+                                    
+                                    <span><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span>
+                                    
+                                    <div class="modal_cart" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
+                                        <div class="modal_list">
+
+                                                <?php 
+                                                    if ( WC()->cart->get_cart_contents_count() > 0 ) {
+                                                        the_widget('WC_Widget_Cart', array('title' => ''));
+                                                    } else {
+                                                        echo '<p style="width: max-content;" class="empty-cart">Ваша корзина пуста</p>'; 
+                                                    }
+                                                ?>
+                                      
+                                        </div>
+                                    </div>
+                                </button>
+                              
+                                <!-- </a> -->
 
                                 <button class="btn_lk">
                                     <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class="border-r border-l border-gray">
@@ -175,7 +196,7 @@
                                         <img class="w-[124px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/logo.jpg'; ?>" alt="Logo">
                                     </a>
                                 </li>
-                                <li class="pb-[15px]"><a href="/?page_id=58" class="link_menu text-dark-green text-[16px]">Каталог</a></li>
+                                <li class="pb-[15px]"><a href="/?page_id=101" class="link_menu text-dark-green text-[16px]">Каталог</a></li>
                                 <li class="pb-[15px]"><a href="/?page_id=13" class="link_menu text-dark-green text-[16px]">О компании</a></li>
                                 <li class="pb-[15px]"><a href="/?page_id=17" class="link_menu text-dark-green text-[16px]">Новости</a></li>
                                 <li class="pb-[15px]"><a href="/?page_id=15" class="link_menu text-dark-green text-[16px]">Контакты</a></li>

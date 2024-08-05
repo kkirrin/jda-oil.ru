@@ -24,7 +24,7 @@ $has_calculated_shipping  = ! empty( $has_calculated_shipping );
 $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
 ?>
-<h3 class="h3_order">Способ доставки</h3>
+<!-- <h3 class="h3_order">Итого</h3> -->
 <?php 
 if(isset($available_methods) && is_array($available_methods))
 { 
@@ -65,11 +65,11 @@ if(isset($available_methods) && is_array($available_methods))
 	?>
 	</ul>
 
-	<div id="tab_local_pickup3" class="shop_address _tabs-block<?php echo isset($actives['local_pickup3']) ? $actives['local_pickup3'] : ''; ?>">
+	<!-- <div id="tab_local_pickup3" class="shop_address _tabs-block<?php echo isset($actives['local_pickup3']) ? $actives['local_pickup3'] : ''; ?>">
 		<span class="address_mark">Cамовывоз</span> в г. Владивосток, ул. Проспект Острякова, д. 13, Пн-Сб с 09:00 до 20:00, Вс с 09:00 до 18:00
-	</div>
+	</div> -->
 
-	<div id="tab_flat_rate2" class="shipping_address _tabs-block<?php echo isset($actives['flat_rate2']) ? $actives['flat_rate2'] : ''; ?>">
+	<!-- <div id="tab_flat_rate2" class="shipping_address _tabs-block<?php echo isset($actives['flat_rate2']) ? $actives['flat_rate2'] : ''; ?>">
 		<div>
 			<?php
 			do_action('woocommerce_checkout_shipping');
@@ -78,14 +78,14 @@ if(isset($available_methods) && is_array($available_methods))
 		<p>Доставка по городу <b>от 5000 ₽ бесплатно</b></p>
 		<p><b>До 5000 ₽</b> в пределах города - <b>400 ₽</b></p>
 		<p>За чертой города - <b>800 ₽</b></p>
-	</div>
+	</div> -->
 
 	<?php 
 	//  ?????
 	if(is_cart())
 	{
 	?>
-	<p class="woocommerce-shipping-destination">
+	<!-- <p class="woocommerce-shipping-destination">
 		<?php
 		if($formatted_destination)
 		{
@@ -98,7 +98,7 @@ if(isset($available_methods) && is_array($available_methods))
 			echo wp_kses_post(apply_filters('woocommerce_shipping_estimate_html', __('Shipping options will be updated during checkout.', 'woocommerce')));
 		}
 		?>
-	</p>
+	</p> -->
 	<?php
 	}
 	//  [?????]
@@ -107,16 +107,16 @@ elseif(!$has_calculated_shipping || !$formatted_destination)
 {
 	if(is_cart() && 'no' === get_option('woocommerce_enable_shipping_calc'))
 	{
-		echo wp_kses_post(apply_filters('woocommerce_shipping_not_enabled_on_cart_html', __('Shipping costs are calculated during checkout.', 'woocommerce')));
+		// echo wp_kses_post(apply_filters('woocommerce_shipping_not_enabled_on_cart_html', __('Shipping costs are calculated during checkout.', 'woocommerce')));
 	}
 	else
 	{
-		echo wp_kses_post(apply_filters('woocommerce_shipping_may_be_available_html', __('Enter your address to view shipping options.', 'woocommerce')));
+		// echo wp_kses_post(apply_filters('woocommerce_shipping_may_be_available_html', __('Enter your address to view shipping options.', 'woocommerce')));
 	}
 }
 elseif(!is_cart())
 {
-	echo wp_kses_post(apply_filters('woocommerce_no_shipping_available_html', __('There are no shipping options available. Please ensure that your address has been entered correctly, or contact us if you need any help.', 'woocommerce')));
+	// echo wp_kses_post(apply_filters('woocommerce_no_shipping_available_html', __('There are no shipping options available. Please ensure that your address has been entered correctly, or contact us if you need any help.', 'woocommerce')));
 }
 else
 {
@@ -136,15 +136,15 @@ else
 			$formatted_destination
 		)
 	);
-	$calculator_text = esc_html__('Enter a different address', 'woocommerce');
+	// $calculator_text = esc_html__('Enter a different address', 'woocommerce');
 }
 
 if($show_package_details)
 {
-	echo '<p class="woocommerce-shipping-contents"><small>' . esc_html($package_details) . '</small></p>';
+	// echo '<p class="woocommerce-shipping-contents"><small>' . esc_html($package_details) . '</small></p>';
 }
 
 if($show_shipping_calculator)
 {
-	woocommerce_shipping_calculator($calculator_text);
+	// woocommerce_shipping_calculator($calculator_text);
 }

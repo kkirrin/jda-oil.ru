@@ -55,36 +55,50 @@
             </div>
         </section>
 
+        <?php
+            $result = parseFile();
+        ?>
 
+                            
+        
         <section class="md:py-[30px] py-[80px]" data-scroll>
             <div class="container">
                 <div class="bg-green py-[10px]">
                     <h3 class="text-white text-center md:text-[40px] text-[24px]">Подобрать масло</h3 >
                 </div>
                 
-                <form action="" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
+                <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                     <div class="flex gap-[10px] flex-col">
-                        <label>Марка</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="marka" placeholder="Введите марку">
+                        <label class="text-green">Марка</label>
+                        <input type="text" name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Введите марку">
                     </div>
                     <div class="flex gap-[10px] flex-col">
-                        <label>Модель</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="marka" placeholder="Введите модель">
+                        <label class="text-green">Модель</label>
+                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green"  placeholder="Введите модель">
                     </div>
                     <div class="flex gap-[10px] flex-col">
-                        <label>Номер кузова</label>
-                        <input class="border border-dark-green py-[12px] px-[20px]w-auto" type="text" name="marka" placeholder="Введите номер кузова">
+                        <label class="text-green">Номер кузова</label>
+                        <input class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" name="kuzov" placeholder="Введите номер кузова">
+                    </div>
+                    <div class="flex gap-[10px] flex-col text-green">
+                        <label class="text-green">Год</label>
+                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year">
+                            <option value="">Укажите год</option>
+                            <?php
+                                for($year = (int) date('Y'); $year >= 1950; $year--) {
+                            ?>
+                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                            <?php
+                                }
+                            ?>
+                </select>
                     </div>
                     <div class="flex gap-[10px] flex-col">
-                        <label>Год</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto" type="date" name="marka" placeholder="Введите год">
-                    </div>
-                    <div class="flex gap-[10px] flex-col">
-                            <label>Номер двигателя</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="marka" placeholder="Введите yомер двигателя">
+                        <label class="text-green">Номер двигателя</label>
+                        <input name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" placeholder="Введите номер двигателя">
                     </div>
                     <div class="my-[5px]" style="width: -webkit-fill-available;">
-                        <button style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
+                        <button name="oil_search" style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
                     </div>
 
                 </form>

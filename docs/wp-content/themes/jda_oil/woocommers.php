@@ -46,5 +46,44 @@
 
     // отключает вывод короткого описания товара
     remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
-   
+
+
+
+    // Подключение функций "ЗАКАЗЫ" корзины
+    if (class_exists('WooCommerce')) {
+        require_once (get_template_directory() . '/template/order.php');
+    }
+
+        // Подключение функций мини корзины
+    if (class_exists('WooCommerce')) {
+        require_once (get_template_directory() . '/template/minicard.php');
+    }
+
+
+    
+
+    function true_order_again($actions, $order)
+    {
+        // добавляет кнопку только для выполненных заказов
+        if ($order->has_status('completed')) {
+
+            $actions['order-again'] = array(
+                'url' => wp_nonce_url(
+                    add_query_arg(
+                        'order_again',
+                        $order->get_id(),
+                        wc_get_cart_url()
+                    ),
+                    'woocommerce-order_again'
+                ),
+                'name' => __('Order again', 'woocommerce'),
+            );
+
+        }
+        return $actions;
+    }
+
+    add_filter('woocommerce_my_account_my_orders_actions', 'true_order_again', 25, 2);
+
+
 ?>

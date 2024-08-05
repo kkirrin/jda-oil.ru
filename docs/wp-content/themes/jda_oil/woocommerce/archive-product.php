@@ -37,9 +37,23 @@ get_header();
 <div class="container">
 	<header class="woocommerce-products-header">
 	<?php if (apply_filters('woocommerce_show_page_title', true)): ?>
-			<h1 class="catalog-title">
-				<?php woocommerce_page_title(); ?>
-			</h1>
+		<div class="flex md:flex-row flex-col md:justify-between justify-start md:items-center items-start">
+                    <div class="flex items-center flex-row">
+						<h1 class="catalog-title">
+							<?php woocommerce_page_title(); ?>
+						</h1>
+                    </div>
+
+					<div class="flex md:flex-row flex-col gap-[20px]">
+						<div>
+							<?php echo do_shortcode('[wpf-filters id=2]') ?>
+							</div>
+						<div>
+							<?php echo do_shortcode('[wpf-filters id=3]'); ?>
+						</div>
+					</div>
+                </div>
+			
 	<?php endif; ?>
 
 	<?php
@@ -55,58 +69,46 @@ get_header();
 		<!-- Тут меню будет -->
 		<section class="mt-[24px] mb-[120px]" data-scroll="">
             <div class="container">  
-                <div class="flex justify-between items-center ">
-                    <div>
-                        <h2 class="md:text-[45px] text-[30px] text-dark-green"> Каталог Товаров</h2>
-                    </div>
-
-					<div class="flex flex-row gap-[20px]">
-						<div>
-							<label for="price-select">Цена:</label> <select id="price-select" class="">
-								<option value="">Select Price</option>
-								<option value="low">Low</option>
-								<option value="medium">Medium</option>
-								<option value="high">High</option>
-							</select>
-						</div>
-						<div>
-							<label for="name-select">Название:</label> <select id="name-select" class="">
-								<option value="">Select Name</option>
-								<option value="alphabetical">Alphabetical</option>
-								<option value="newest">Newest</option>
-								<option value="popularity">Popularity</option>
-							</select>
-						</div>
-					</div>
-                </div>
+                
                     
                 <div class="flex md:flex-row flex-col gap-[50px]">
                     <div class="md:w-1/3 w-auto">
-                        <form action="" class="flex flex-col gap-[20px] md:pt-[60px] pt-[20px]">
+					<form action="https://jda-oil.ru/?page_id=52" method="POST" class="flex flex-col gap-[20px] text-green">
                             <div class="flex gap-[10px] flex-col">
-                                <label>Марка</label>
-                                <input class="border border-dark-green py-[12px] px-[20px]" type="text" name="marka" placeholder="Введите марку">
-                            </div>
-                            <div class="flex gap-[10px] flex-col">
-                                <label>Модель</label>
-                                <input class="border border-dark-green py-[12px] px-[20px]" type="text" name="marka" placeholder="Введите модель">
+                                <label class="text-green">Марка</label>
+                                <input type="text" name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Введите марку">
                             </div>
                             <div class="flex gap-[10px] flex-col">
-                                <label>Номер кузова</label>
-                                <input class="border border-dark-green py-[12px] px-[20px]" type="text" name="marka" placeholder="Введите номер кузова">
+                                <label class="text-green">Модель</label>
+                                <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green"  placeholder="Введите модель">
                             </div>
                             <div class="flex gap-[10px] flex-col">
-                                <label>Год</label>
-                                <input class="border border-dark-green py-[12px] px-[20px]" type="date" name="marka" placeholder="Введите год">
+                                <label class="text-green">Номер кузова</label>
+                                <input class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" name="kuzov" placeholder="Введите номер кузова">
+                            </div>
+                            <div class="flex gap-[10px] flex-col text-green">
+                                <label class="text-green">Год</label>
+                                <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year">
+                                    <option value="">Укажите год</option>
+                                    <?php
+                                        for($year = (int) date('Y'); $year >= 1950; $year--) {
+                                    ?>
+                                    <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                    <?php
+                                        }
+                                    ?>
+                                </select>
                             </div>
                             <div class="flex gap-[10px] flex-col">
-                                    <label>Номер двигателя</label>
-                                <input class="border border-dark-green py-[12px] px-[20px]" type="text" name="marka" placeholder="Введите yомер двигателя">
+                                <label class="text-green">Номер двигателя</label>
+                                <input name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" placeholder="Введите номер двигателя">
                             </div>
-                            <div class="my-[5px]">
-                                <button style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
+                            <div class="my-[5px]" style="width: -webkit-fill-available;">
+                                <button name="oil_search" style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
                             </div>
+
                         </form>
+						
                     </div>
 
                     <div class="md:w-10/12 w-auto">

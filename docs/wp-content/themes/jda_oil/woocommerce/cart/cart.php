@@ -46,7 +46,7 @@ endforeach;
 ?>
 
 
-<div class="new-card-wrapper">
+<div class="new-card-wrapper" id="for__footer">
 
 	<div class="new-card-item">
 
