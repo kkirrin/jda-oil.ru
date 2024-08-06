@@ -55,11 +55,11 @@ function theme_add_scripts()
     // Для скролла
     wp_enqueue_script('smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js');
 
-    function my_scripts() {
-        wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '2.0', true );
-    }
+    // function my_scripts() {
+    //     wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '2.0', true );
+    // }
     
-    add_action( 'wp_enqueue_scripts', 'my_scripts' );
+    // add_action( 'wp_enqueue_scripts', 'my_scripts' );
 }
 
     // Добавляем поддержку шорткодов в текстовых виджетах

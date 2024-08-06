@@ -39,20 +39,20 @@
                 <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Марка</label>
-                        <input value="<?php echo isset($_POST['marka']) ? $_POST['marka'] : ''; ?>" type="text" name="marka" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" placeholder="Введите марку">
+                        <input value="<?php echo isset($_POST['marka']) ? $_POST['marka'] : ''; ?>" type="text" name="marka" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" placeholder="Марка">
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Модель</label>
-                        <input value="<?php echo isset($_POST['model']) ? $_POST['model'] : ''; ?>" name="model" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto"  placeholder="Введите модель">
+                        <input value="<?php echo isset($_POST['model']) ? $_POST['model'] : ''; ?>" name="model" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto"  placeholder="Модель">
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер кузова</label>
-                        <input value="<?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : ''; ?>" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="kuzov" placeholder="Введите номер кузова">
+                        <input value="<?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : ''; ?>" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="kuzov" placeholder="Номер кузова">
                     </div>
                     <div class="flex gap-[10px] flex-col text-green">
                         <label class="text-green">Год</label>
-                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green " name="year">
-                            <option class="text-green" value="">Укажите год</option>
+                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green " name="year" placeholder="Год">
+                            <option class="text-green" value="">Год</option>
                             <?php
                                 for($year = (int) date('Y'); $year >= 1950; $year--) {
                             ?>
@@ -64,10 +64,10 @@
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер двигателя</label>
-                        <input value="<?php echo isset($_POST['dvig']) ? $_POST['dvig'] : ''; ?>" name="dvig" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" placeholder="Введите номер двигателя">
+                        <input value="<?php echo isset($_POST['dvig']) ? $_POST['dvig'] : ''; ?>" name="dvig" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" placeholder="Номер двигателя">
                     </div>
                     <div class="my-[5px]" style="width: -webkit-fill-available;">
-                        <button name="oil_search" style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
+                        <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[10px] md:w-auto w-auto text-center bg-green text-white btn-green" type="submit" name="get_maslo">Подобрать</button>
                     </div>
 
                 </form>

@@ -87,7 +87,7 @@ endforeach;
 											}
 										?>
 									</div>
-								<div class="flex md:flex-col flex-row">
+								<div class="flex flex-col">
 										<div class="flex md:flex-row flex-col">
 											<div class="product-name" data-title="<?php esc_attr_e('Product', 'woocommerce'); ?>">
 												<?php

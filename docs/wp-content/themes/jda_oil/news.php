@@ -44,11 +44,13 @@
                         
                         foreach($my_posts as $post) {
                             echo '
-                                <div class="news-list--item">
-                                <a href="'. get_permalink($post->ID) .'">
-                                    <img src="'. get_field('photo_news') .'" alt="" class="news-list--item__img">
-                                    <date class="news-list--item__date">'. get_field('date_news') .'</date>
-                                    <article class="news-list--item__name">'. get_field('name_news') .'</article>
+                                 <a href="'. get_permalink($post->ID) .'">
+                                    <div class="news-list--item">
+                                        <div class="overflow-hidden">
+                                            <img src="'. get_field('photo_news') .'" alt="" class="news-list--item__img">
+                                        </div>
+                                        <date class="news-list--item__date">'. get_field('date_news') .'</date>
+                                        <article class="news-list--item__name">'. get_field('name_news') .'</article>
                                     </div>
                                 </a>';
                             };

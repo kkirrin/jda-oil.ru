@@ -19,14 +19,12 @@ export const initNav = () => {
 
     mobileMenuLinks.forEach(link => {
         link.addEventListener('click', (evt) => {
-            evt.preventDefault();
             menuButton.classList.remove('active');
             menu.classList.remove('is-active');
             body.classList.remove('lock');
         });
     });
     mobileMenuButton.addEventListener('click', (evt) => {
-        evt.preventDefault();
         mobileMenuButton.classList.toggle('active');
         mobileMenu.classList.toggle('is-active');
         body.classList.toggle('lock');
@@ -35,7 +33,6 @@ export const initNav = () => {
 
     menuLinks.forEach(link => {
         link.addEventListener('click', (evt) => {
-            evt.preventDefault();
             menuButton.classList.remove('active');
             menu.classList.remove('is-active');
             body.classList.remove('lock');

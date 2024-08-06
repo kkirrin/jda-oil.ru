@@ -13,26 +13,27 @@
     
     <div>
         <header class="z-10 w-full md-28 transition-colors"> 
-            <div class="bg-green py-[12px] md:block sm:hidden hidden">
+            <div class="bg-green py-[12px] md:block sm:block hidden">
                 <p class="text-white text-center">Летняя акция — скидка 10% на заказы конкретной категории</p>
             </div>
 
 
             <div class="md:gap-5 items-center flex-col md:pt-2">
                 <div class="relative w-full z-10 flex justify-between gap-5 items-center container md:p-[5px] p-[10px]">
-                    <div class="md:block sm:block hidden">
-                        <p class="text-dark-green">
+                    <div class="md:block sm:hidden hidden">
+                        <p class="text-dark-green" style="width: max-content !important;">
                             По всем вопросам писать на: <a href="mailto:jdaoil@mail.ru">
                                 jdaoil@mail.ru
                             </a>
                         </p>
-                    </div>                  
+                    </div>                
+
 
                     <a href="/" class="md:hidden sm:hidden block">
                         <img class="object-fill" src="<?php echo get_template_directory_uri() . '/src/img/logo.jpg'; ?>" alt="" >                           
-                     </a>
+                    </a>                        
 
-                    <div class="flex gap-[30px] items-center">
+                    <div style="width: -webkit-fill-available;" class="flex gap-[30px] items-center md:justify-right sm:justify-between justify-end">
                         <div class="text-dark-green md:block sm:block hidden">ПН — СБ с 10:00 до 18:00</div>
 
                         <div class="text-dark-green md:block sm:block hidden">
@@ -78,8 +79,6 @@
                 </div>
 
                 <div class="w-full md:hidden sm:hidden block relative border border-gray">
-                    <!-- <input class="rounded-md bg-light-gray py-[18px] px-[60px] w-full" type="search" placeholder="Поиск...">
-                    <img src="<?php echo get_template_directory_uri() . '/src/img/icons/search_gray.svg'; ?>" alt="Search" class="h-6 w-6 absolute top-1/2 left-5 transform -translate-y-1/2"/> -->
                     <?php echo do_shortcode('[fibosearch]'); ?>
                 </div>
 
@@ -88,7 +87,7 @@
                 <div class="relative w-full z-10 flex justify-between items-center gap-5 border border-gray">
                     <div class="container__special flex justify-between">                     
                         <div class="flex gap-[20px] items-center md:w-auto w-[200px]" style="width: -webkit-fill-available;">
-                            <a href="/" class="md:block sm:block hidden">
+                            <a href="/" class="md:block sm:hidden hidden">
                                <img class="object-fill" src="<?php echo get_template_directory_uri() . '/src/img/logo.jpg'; ?>" alt="" >                           
                             </a>
                             <a href="/?page_id=101" class="bg-green py-[18px] px-[50px] flex gap-[8px] btn__menu">
@@ -100,18 +99,14 @@
                             <div class="md:flex sm:flex hidden items-center">
                                 <div class="relative flex justify-evenly">
                                     <div>
-                                        <!-- <input class="rounded-md bg-light-gray py-[18px] px-[30px] hidden esm:hidden sm:flex" type="search" placeholder="Поиск по товарам..."> -->
                                         <?php echo do_shortcode('[fibosearch]'); ?>
                                     </div>
-                                    <!-- <div>
-                                        <img src="<?php echo get_template_directory_uri() . '/src/img/icons/search_gray.svg'; ?>" alt="Search" class="h-6 w-6 absolute top-1/2 left-0 transform -translate-y-1/2"/>
-                                    </div> -->
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-[20px] border-l border-gray">
-                            <div class="md:block sm:block hidden ml-[30px]">
+                        <div class="flex items-center gap-[20px] border-l border-gray" style="width: -webkit-fill-available;">
+                            <div class="md:block sm:hidden hidden ml-[30px]">
                                 <ul class="flex items-center gap-[40px]">
                                     <li><a href="/?page_id=17" class="link_menu text-dark-green">Новости</a></li>
                                     <li class="w-max"><a href="/?page_id=13" class="link_menu text-dark-green">О компании</a></li>
@@ -119,38 +114,57 @@
                                 </ul>
                             </div>
 
-                            <div class="flex" style="margin: 0 10px;">
+                            <div class="flex">
                                 <!-- <a href="/?page_id=102"> -->
-                                <button href="<?php echo esc_url(wc_get_cart_url()); ?>" class="btn_cart relative flex items-center">
-                                    <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">
-                                        <g clip-path="url(#clip0_200_307)">
-                                            <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                            <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </g>
-                                        <defs>
-                                        <clipPath id="clip0_200_307">
-                                            <rect width="20" height="20" fill="white" transform="translate(18 17)"/>
-                                        </clipPath>
-                                        </defs>
-                                    </svg>
-                                    
-                                    <span><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span>
-                                    
-                                    <div class="modal_cart" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
-                                        <div class="modal_list">
+                                <div class="md:block sm:block hidden">
+                                    <button href="<?php echo esc_url(wc_get_cart_url()); ?>" class="btn_cart relative flex items-center">
+                                        <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">
+                                            <g clip-path="url(#clip0_200_307)">
+                                                <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_200_307">
+                                                <rect width="20" height="20" fill="white" transform="translate(18 17)"/>
+                                            </clipPath>
+                                            </defs>
+                                        </svg>
+                                        
+                                        <span><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span>
+                                        
+                                        <div class="modal_cart" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
+                                            <div class="modal_list">
 
-                                                <?php 
-                                                    if ( WC()->cart->get_cart_contents_count() > 0 ) {
-                                                        the_widget('WC_Widget_Cart', array('title' => ''));
-                                                    } else {
-                                                        echo '<p style="width: max-content;" class="empty-cart">Ваша корзина пуста</p>'; 
-                                                    }
-                                                ?>
-                                      
+                                                    <?php 
+                                                        if ( WC()->cart->get_cart_contents_count() > 0 ) {
+                                                            the_widget('WC_Widget_Cart', array('title' => ''));
+                                                        } else {
+                                                            echo '<p style="width: max-content;" class="empty-cart">Ваша корзина пуста</p>'; 
+                                                        }
+                                                    ?>
+                                        
+                                            </div>
                                         </div>
-                                    </div>
-                                </button>
+                                    </button>
+                                </div>
+
+                                <div class="md:hidden sm:hidden block">
+                                    <a href="/?page_id=102">
+                                        <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">
+                                            <g clip-path="url(#clip0_200_307)">
+                                                <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                                <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </g>
+                                            <defs>
+                                            <clipPath id="clip0_200_307">
+                                                <rect width="20" height="20" fill="white" transform="translate(18 17)"/>
+                                            </clipPath>
+                                            </defs>
+                                        </svg>                  
+                                    </a>    
+                                </div>
                               
                                 <!-- </a> -->
 
@@ -196,10 +210,10 @@
                                         <img class="w-[124px] h-[60px]" src="<?php echo get_template_directory_uri() . '/src/img/logo.jpg'; ?>" alt="Logo">
                                     </a>
                                 </li>
-                                <li class="pb-[15px]"><a href="/?page_id=101" class="link_menu text-dark-green text-[16px]">Каталог</a></li>
-                                <li class="pb-[15px]"><a href="/?page_id=13" class="link_menu text-dark-green text-[16px]">О компании</a></li>
-                                <li class="pb-[15px]"><a href="/?page_id=17" class="link_menu text-dark-green text-[16px]">Новости</a></li>
-                                <li class="pb-[15px]"><a href="/?page_id=15" class="link_menu text-dark-green text-[16px]">Контакты</a></li>
+                                <li class="pb-[15px]"><a href="/?page_id=101" class="link_menu text-dark-green text-[16px] link__hover">Каталог</a></li>
+                                <li class="pb-[15px]"><a href="/?page_id=13" class="link_menu text-dark-green text-[16px] link__hover">О компании</a></li>
+                                <li class="pb-[15px]"><a href="/?page_id=17" class="link_menu text-dark-green text-[16px] link__hover">Новости</a></li>
+                                <li class="pb-[15px]"><a href="/?page_id=15" class="link_menu text-dark-green text-[16px] link__hover">Контакты</a></li>
 
                                 <li class="text-dark-green text-[16px] pb-[15px]">Пн — СБ с 10:00 до 18:00</li>
                                 <li class="pb-[15px]"><a href="+79841922217" class="text-dark-green text-[16px]">+7 (984) 192‒22‒17</a></li>
@@ -208,7 +222,7 @@
                                     <p class="text-[16px] text-dark-green pb-[15px]">
                                         Мы в соцсетях
                                     </p>
-                                    <div class="flex gap-[10px]">
+                                    <div id='socials_icons' class="flex gap-[10px]">
                                         <svg id="tg" width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <g clip-path="url(#clip0_225_1449)">
                                             <rect width="35" height="35" rx="17.5" fill="white"/>

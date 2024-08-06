@@ -70,20 +70,20 @@
                 <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Марка</label>
-                        <input type="text" name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Введите марку">
+                        <input type="text" name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Марка">
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Модель</label>
-                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green"  placeholder="Введите модель">
+                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green"  placeholder="Модель">
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер кузова</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" name="kuzov" placeholder="Введите номер кузова">
+                        <input class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" name="kuzov" placeholder="Номер кузова">
                     </div>
                     <div class="flex gap-[10px] flex-col text-green">
                         <label class="text-green">Год</label>
-                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year">
-                            <option value="">Укажите год</option>
+                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year" placeholder="Год">
+                            <option value="">Год</option>
                             <?php
                                 for($year = (int) date('Y'); $year >= 1950; $year--) {
                             ?>
@@ -95,10 +95,10 @@
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер двигателя</label>
-                        <input name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" placeholder="Введите номер двигателя">
+                        <input name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" placeholder="Номер двигателя">
                     </div>
-                    <div class="my-[5px]" style="width: -webkit-fill-available;">
-                        <button name="oil_search" style="width: -webkit-fill-available;" class="p-[10px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
+                    <div style="width: -webkit-fill-available;">
+                        <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[13px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
                     </div>
 
                 </form>
@@ -112,7 +112,7 @@
                         <h3>Моторное масло</h3>
                     </div>
                     <div>
-                        <a href="/?page_id=52" class="border border-dark-green p-[10px] flex items-center gap-[16px]">
+                        <a href="/?page_id=52" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
                             <span class="text-dark-green">Смотреть все</span>
                             <svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00"/>
@@ -166,8 +166,8 @@
                                 echo '              </div>';
                                 echo '              <p class="oil__list-item--price">'. $product_price .'</p>';
                                 echo '              <div class="oil__list-item--buttons">';
-                                echo '                  <button style="width: -webkit-fill-available;" class="p-[10px] text-dark-green bg-white text-center">В розницу</button>';
-                                echo '                  <button style="width: -webkit-fill-available;" class="p-[10px] text-white text-center bg-green">Оптом</button>';
+                                echo '                  <button style="width: -webkit-fill-available;" class="btn-white p-[10px] bg-white text-center">В розницу</button>';
+                                echo '                  <button style="width: -webkit-fill-available;" class="btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</button>';
                                 echo '              </div>';
                                 echo '          </div>';
                                 echo '      </div>';
@@ -203,7 +203,7 @@
                 <div class="md:my-[120px] my-[80px] relative border border-dark-green">
                     <img class="md:block hidden absolute left-0 top-0" src="<?php echo get_template_directory_uri() . '/src/img/icons/about_bg.png'; ?>" alt="">
                     <img class="md:block hidden absolute right-0" src="<?php echo get_template_directory_uri() . '/src/img/icons/about_bg_right.png'; ?>" alt="">
-                    <div class="md:pt-[106px] md:pb-[76px] md:px-[80px] p-[20px] pt-[10px] pb-[10px]">
+                    <div class="md:pt-[106px] md:pb-[76px] md:px-[80px] p-[20px] pt-[10px] pb-[10px] md:relative absolute">
 
                     <?php
                         $my_posts = get_posts(array(
@@ -233,7 +233,7 @@
                         <h3>Новости</h3>
                     </div>
                     <div>
-                        <a href="/?page_id=17" class="border border-dark-green p-[10px] flex items-center gap-[16px]">
+                        <a href="/?page_id=17" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
                             <span class="text-dark-green">Смотреть все</span>
                             <svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00"/>
@@ -256,7 +256,9 @@
                             echo '
                                 <a href="'. get_permalink($post->ID) .'">
                                     <div class="news-list--item">
-                                        <img src="'. get_field('photo_news') .'" alt="" class="news-list--item__img">
+                                        <div class="overflow-hidden">
+                                            <img src="'. get_field('photo_news') .'" alt="" class="news-list--item__img">
+                                        </div>
                                         <date class="news-list--item__date">'. get_field('date_news') .'</date>
                                         <article class="news-list--item__name">'. get_field('name_news') .'</article>
                                     </div>
