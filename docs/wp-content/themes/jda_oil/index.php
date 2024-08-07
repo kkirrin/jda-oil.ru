@@ -53,13 +53,7 @@
             <div class="bg-green py-[12px] md:hidden sm:hidden block">
                 <p class="text-white text-center">Летняя акция — скидка 10% на заказы конкретной категории</p>
             </div>
-        </section>
-
-        <?php
-            $result = parseFile();
-        ?>
-
-                            
+        </section>        
         
         <section class="md:py-[30px] py-[80px]" data-scroll>
             <div class="container">

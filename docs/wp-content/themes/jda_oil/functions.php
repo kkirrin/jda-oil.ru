@@ -45,7 +45,7 @@ function theme_add_scripts()
 
     // Подключаем js файл filter.js
     wp_enqueue_script('filter', get_template_directory_uri() . '/js/module/filter.js');
-    wp_localize_script( 'filter', 'php_data', array('parse_file' => parseFile()) );
+    // wp_localize_script( 'filter', 'php_data', array('parse_file' => parseFile()) );
     //  Для картинок 
     wp_enqueue_script('baguettebox', get_template_directory_uri() . '/js/baguettebox.js');
     // Для параллакса
@@ -198,7 +198,11 @@ function theme_add_scripts()
         require_once (get_template_directory() . '/woocommers.php');
     }
 
-    // Парсер файла
+   
+    add_action('wp_ajax_call_parser', 'parseFile');
+    add_action('wp_ajax_nopriv_call_parser', 'parseFile');
+
+
     function parseFile() {
         $path_to_file = 'RED_BOOK.csv';
         $path_to_log = 'logs/jda_parser_log.txt';
@@ -271,12 +275,12 @@ function theme_add_scripts()
             
             // Логирование успешной обработки данных
             file_put_contents($path_to_log, '['. date('Y-m-d H:i:s') .'] Success : Parser is success'. PHP_EOL, FILE_APPEND);
-            return $data;
+            echo json_encode($data, JSON_UNESCAPED_UNICODE);
         }
         else {
             // Логирование ошибки, если файла не существует
             file_put_contents($path_to_log, '['. date('Y-m-d H:i:s') .'] Error : File '. $path_to_file .' is not exist'. PHP_EOL, FILE_APPEND);
-            return false;
+            echo 'false';
         }
     }
 
