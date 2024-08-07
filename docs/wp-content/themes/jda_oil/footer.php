@@ -42,7 +42,7 @@
                 </div>
                 <div class="md:block hidden">
                     <div class="flex flex-col">
-                        <p class="text-[16px]  text-dark-green">
+                        <p class="text-[16px] text-dark-green" style="padding-bottom: 4px;">
                             Мы в соцсетях
                         </p>
                         <div class="flex gap-[10px]">

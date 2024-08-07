@@ -42,16 +42,16 @@
                     <div class="flex flex-col gap-[10px]">
                         <p class="text-base font-semibold pb-[10px] mb-[13px] text-line">Контактная информация:</p>
                         <ul class="flex flex-col gap-[12px]">
-                            <li class="text-base text-dark-green"> г. Находка, ул. Ленинградская, д. 13В</li>
-                            <li class="text-base text-dark-green">+7 (984) 192‒22‒17</li>
-                            <li class="text-base text-dark-green">  Пн — СБ с 10:00 до 18:00/li>
+                            <li class="text-base"> г. Находка, ул. Ленинградская, д. 13В</li>
+                            <li class="text-base">+7 (984) 192‒22‒17</li>
+                            <li class="text-base">  Пн — СБ с 10:00 до 18:00/li>
                         </ul>
 
-                        <p class="text-base font-semibold pb-[10px] mb-[13px] text-line">Реквизиты:</p>
-                        <ul class="single-list" style="width: -webkit-fill-available;">
-                        <li><p>ИНН</p><span>2508140749</span></li>
-                        <li><p>ОГРН</p><span>1212500015970</span></li>
-                    </ul>
+                        <p style="padding-top: 60px;" class="text-base font-semibold pb-[10px] mb-[13px] text-line">Реквизиты:</p>
+                            <ul class="single-list--contact" style="width: -webkit-fill-available;">
+                                <li><p>ИНН</p><span>2508140749</span></li>
+                                <li><p>ОГРН</p><span>1212500015970</span></li>
+                            </ul>
                     </div>
                 </div>
             </div>

@@ -67,7 +67,10 @@
                         <input value="<?php echo isset($_POST['dvig']) ? $_POST['dvig'] : ''; ?>" name="dvig" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" placeholder="Номер двигателя">
                     </div>
                     <div class="my-[5px]" style="width: -webkit-fill-available;">
-                        <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[10px] md:w-auto w-auto text-center bg-green text-white btn-green" type="submit" name="get_maslo">Подобрать</button>
+                        <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[10px] md:w-auto w-auto text-center bg-green text-white btn-green" type="submit" name="get_maslo">
+                            Подобрать
+                                <span style="width: 10px; height: 10px;" class="download"></span>
+                        </button>
                     </div>
 
                 </form>

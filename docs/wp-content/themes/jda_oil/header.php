@@ -105,7 +105,7 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-[20px] border-l border-gray" style="width: -webkit-fill-available;">
+                        <div class="flex items-center gap-[20px] border-l border-gray md:justify-end justify-start" style="width: -webkit-fill-available;">
                             <div class="md:block sm:hidden hidden ml-[30px]">
                                 <ul class="flex items-center gap-[40px]">
                                     <li><a href="/?page_id=17" class="link_menu text-dark-green">Новости</a></li>
@@ -131,7 +131,7 @@
                                             </defs>
                                         </svg>
                                         
-                                        <span><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span>
+                                        <span id="count"><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span>
                                         
                                         <div class="modal_cart" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
                                             <div class="modal_list">

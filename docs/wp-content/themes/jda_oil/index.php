@@ -206,7 +206,7 @@
                         if (!empty($my_posts)) {
                             foreach ($my_posts as $post) {
                                 echo '
-                                    <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green p-[10px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
+                                    <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green md:px-[50px] md:py-[10px] px-[46px] py-[24px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
                                     <p class="text-dark-green z-10 md:text-[65px] sm:text-[30px] text-[25px] md:max-w-[700px] w-auto">' . get_field('text_promotion', $post->ID) . '</p>
                                 ';
                             }

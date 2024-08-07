@@ -177,19 +177,19 @@ function theme_add_scripts()
 
     function remove_default_menus()
     {
-        // remove_menu_page('edit.php');                  // Консоль
-        // remove_menu_page('index.php');                  // Консоль
-        // remove_menu_page('upload.php');                 // Медиафайлы
-        // remove_menu_page('edit.php?post_type=page');    // Страницы
-        // remove_menu_page('edit-comments.php');          // Комментарии
-        // remove_menu_page('themes.php');                 // Внешний вид
-        // remove_menu_page('plugins.php');                // Плагины
-        // remove_menu_page('users.php');                  // Пользователи
-        // remove_menu_page('tools.php');                  // Инструменты 
-        // remove_menu_page('options-general.php');        // Настройки
-        // remove_menu_page('wpcf7');   // Contact form 7
-        // remove_menu_page('aiowpsec');   // wp security
-        // remove_menu_page('edit.php?post_type=acf-field-group');   // ACF Field Group
+        remove_menu_page('edit.php');                  // Консоль
+        remove_menu_page('index.php');                  // Консоль
+        remove_menu_page('upload.php');                 // Медиафайлы
+        remove_menu_page('edit.php?post_type=page');    // Страницы
+        remove_menu_page('edit-comments.php');          // Комментарии
+        remove_menu_page('themes.php');                 // Внешний вид
+        remove_menu_page('plugins.php');                // Плагины
+        remove_menu_page('users.php');                  // Пользователи
+        remove_menu_page('tools.php');                  // Инструменты 
+        remove_menu_page('options-general.php');        // Настройки
+        remove_menu_page('wpcf7');   // Contact form 7
+        remove_menu_page('aiowpsec');   // wp security
+        remove_menu_page('edit.php?post_type=acf-field-group');   // ACF Field Group
     }
 
 
@@ -204,9 +204,9 @@ function theme_add_scripts()
 
 
     function parseFile() {
-        $path_to_file = 'RED_BOOK.csv';
-        $path_to_log = 'logs/jda_parser_log.txt';
-
+        $path_to_file = '/home/jda6388454/jda-oil.ru/docs/RED_BOOK.csv';
+        $path_to_log = '/home/jda6388454/jda-oil.ru/docs/logs/jda_parser_log.txt';
+        
         // Проверка существования файла
         if(file_exists($path_to_file)) {
             // Переменная для ключей данных
@@ -282,6 +282,8 @@ function theme_add_scripts()
             file_put_contents($path_to_log, '['. date('Y-m-d H:i:s') .'] Error : File '. $path_to_file .' is not exist'. PHP_EOL, FILE_APPEND);
             echo 'false';
         }
+
+        wp_die();
     }
 
 ?>

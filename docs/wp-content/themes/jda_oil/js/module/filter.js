@@ -50,7 +50,8 @@
 window.addEventListener('DOMContentLoaded', () => {
     // php_data - из файла functions через wp_localize_script
     
-    document.getElementsByName('oil_search')[0].addEventListener('click', function(e) {
+    // document.getElementsByName('oil_search')[0].addEventListener('click', function(e) {
+    jQuery('button[name="oil_search"]').on('click', function(e) {
         e.preventDefault();
         
         jQuery.ajax({
@@ -60,31 +61,31 @@ window.addEventListener('DOMContentLoaded', () => {
                 action: 'call_parser',
             },
             success: function(response) {
-                console.log(response);
-                // filter_result.innerHTML = response;
-                // const this_submit = e.target;
-                // const this_form = this_submit.closest('form');
-                // const form_elements = this_form.querySelectorAll('input, select');
-                // const filter_result = document.getElementById('filter_result');
-                // let filter_options = {};
-                // let oils = [];
-                
-                // form_elements.forEach(function(form_element) {
-                //     if(form_element.value !== '') {
-                //         filter_options[form_element.getAttribute('name')] = form_element.value;
-                //     }
-                // });
-        
-                // const filtered_data = get_filtered_data(json_data, filter_options);
-                // filtered_data.forEach(function(item) {
-                //     if(oils.indexOf(item['recommend_oil']) === -1) {
-                //         oils.push(item['recommend_oil']);
-                //         this_form.innerHTML += '<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">';
-                //     }
-                // });
 
-                // this_submit.closest('form').submit();
-            }
+                json_data = JSON.parse(response);
+                const this_submit = jQuery(e.currentTarget);
+                const this_form = this_submit.parents('form').eq(0);
+                const form_elements = this_form.find('input, select');
+                let filter_options = {};
+                let oils = [];
+
+                form_elements.each((i, form_element) => {
+                    const form_item = jQuery(form_element);
+                    if(form_item.val() != '') {
+                        filter_options[form_item.attr('name')] = form_item.val();
+                    }
+                })
+
+                const filter_data = get_filtered_data(json_data, filter_options);
+                
+                filter_data.forEach(function(item) {
+                    if(oils.indexOf(item['recommend_oil']) === -1) {
+                        oils.push(item['recommend_oil']);
+                        this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
+                    }
+                });                
+            this_form.submit();
+             }
         })
 
       

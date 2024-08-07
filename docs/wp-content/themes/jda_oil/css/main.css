@@ -373,6 +373,10 @@
 
 /* Секция МОТОРНОЕ МАСЛО */
 
+#oil__main {
+  padding-top: 70px;
+}
+
 #oil__main .oil__list {
   display: grid;
   grid-template-columns: repeat(4,1fr);
@@ -747,7 +751,7 @@ th, td {
   transition: .4s linear;
 }
 
-.single-list {
+.single-list, .single-list--contact {
   padding: 0 10px;
   margin: 0;
   width: 20%;
@@ -758,22 +762,26 @@ th, td {
   padding: 10px 0;
 }
 
+.single-list--contact li {
+  padding: 10px 0;
+}
+
 .single-list p {
   text-decoration: none;
   color: #555;
 }
 
-.single-list li {
+.single-list li, .single-list--contact li{
   display: flex;
   justify-content: space-between;
 }
 
 @media screen and (max-width: 480px) {
-  .single-list * {
+  .single-list *, .single-list--contact * {
     transition: .4s linear;
   }
 
-  .single-list {
+  .single-list, .single-list--contact {
     padding: 0 10px;
     margin: 0;
     width: 100%;
@@ -1450,6 +1458,17 @@ p {
 
 .m-auto{
   margin: auto;
+}
+
+
+.px-\[46px\] {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.py-\[24px\] {
+  padding-top: 24px;
+  padding-bottom: 24px;
 }
 
 .my-\[100px\]{
@@ -2131,33 +2150,37 @@ p {
   opacity: 0;
 }
 
+.container__special--woo {
+
+}
+
 /* Директивы классов */
 
 @media (min-width: 768px){
-  .container__special{
+  .container__special, .container__special--woo{
     max-width: 768px;
   }
 }
 
 @media (min-width: 1024px){
-  .container__special{
+  .container__special, .container__special--woo{
     max-width: 1024px;
   }
 }
 
 @media (min-width: 1280px){
-  .container__special{
+  .container__special, .container__special--woo{
     max-width: 1280px;
   }
 }
 
 @media (min-width: 1440px){
-  .container__special{
+  .container__special, .container__special--woo{
     max-width: 1440px;
   }
 }
 
-.container__special{
+.container__special, .container__special--woo{
   max-width: 1440px;
 }
 
@@ -2204,14 +2227,24 @@ p {
   width: 100%;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 20px;
-  padding-left: 20px;
+  /* padding-right: 20px;
+  padding-left: 20px; */
+}
+
+.container__special--woo {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media screen and (max-width: 480px) {
   .container__special {
     width: 100%;
     padding: 0;
+  }
+  .container__special--woo:first-of-type {
+    padding-right: 20px;
+    padding-left: 20px;
   }
 }
 
@@ -2309,7 +2342,7 @@ p {
   }
 
   .md\:h-\[86vh\]{
-    height: 86vh;
+    height: 80vh;
   }
   
   .md\:justify-right {
@@ -2418,6 +2451,15 @@ p {
     padding: 70px;
   }
 
+  .md\:px-\[50px\]{
+    padding-left: 50px; 
+    padding-right: 50px; 
+  }
+  .md\:py-\[10px\]{
+    padding-top: 10px; 
+    padding-bottom: 10px; 
+  }
+
   .md\:px-\[80px\]{
     padding-left: 80px;
     padding-right: 80px;
@@ -2450,6 +2492,11 @@ p {
 
   .md\:pt-\[100px\]{
     padding-top: 100px;
+  }
+
+
+  .md\:justify-end {
+    justify-content: end;
   }
 
   .md\:pt-\[106px\]{
@@ -2688,7 +2735,14 @@ svg:hover {
   .single-product__wrapper {
     flex-wrap: wrap;
   }
+  .single-product__description {
+    width: -webkit-fill-available;
+  }
+  .related li.product {
+    width: -webkit-fill-available !important;
+  }  
 }
+
 .woocommerce ul.products li.product.price {
   margin-bottom:  0 !important;
 }
@@ -2992,7 +3046,7 @@ h1.wpc--darkluplite-element.darkluplite--text {
 
 .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp input[type=search].dgwt-wcas-search-input {
   border-radius: 0px;
-  padding: 18px 36px 13px 59px;
+  padding: 13px 36px 13px 59px;
 }
 
 
@@ -3002,7 +3056,7 @@ h1.wpc--darkluplite-element.darkluplite--text {
 }
 
 .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit {
-  top: 16px;
+  top: 10px;
 }
 
 .dgwt-wcas-style-pirx .dgwt-wcas-sf-wrapp button.dgwt-wcas-search-submit:hover {
@@ -3368,6 +3422,42 @@ table.table {
 }
 
 
+.download {
+  display                     : none;
+}
+
+.download::before {
+  width                       : 100%;
+  height                      : 100%;
+  content                     : '';
+  position                    : absolute;
+  top                         : 50%;
+  left                        : 50%;
+  display                     : block;
+  background-image            : url(../src/img/icons/download.png);
+  background-position         : center center;
+  background-repeat           : no-repeat;
+  background-size             : contain;
+  transform                   : translate(-50%, -50%);
+  animation-name              : anim_rotation;
+  animation-duration          : 600ms;
+  animation-iteration-count   : infinite;
+  animation-timing-function   : steps(12, start);
+}
+
+@keyframes anim_rotation
+{
+    0%
+    {
+        transform               : translate(-50%, -50%) rotate(0deg);
+    }
+    100%
+    {
+        transform               : translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
 @media screen and (max-width:480px) {
   .btn_cart .wpc--darkluplite-element.darkluplite--text {
     display: none;
@@ -3380,3 +3470,7 @@ table.table {
   }
 }
 
+
+.btn_cart #count {
+  padding-right: 10px;
+} 

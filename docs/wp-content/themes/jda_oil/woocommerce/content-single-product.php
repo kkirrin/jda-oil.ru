@@ -53,11 +53,11 @@ if (post_password_required()) {
 ?>
 <div id="product-<?php the_ID(); ?>" <?php wc_product_class('', $product); ?>>
 	<h1 class="title">
-		<div class="container">
+		<div class="">
 			<?php echo $product_title ?>
 		</div>
 	</h1>
-	<div class="single-product__wrapper container">
+	<div class="single-product__wrapper">
 		<?php
 		/**
 		 * Hook: woocommerce_before_single_product_summary.
@@ -71,34 +71,34 @@ if (post_password_required()) {
 		<div class="single-product__description">
 			<ul class="single-product__list">
 				
-				<li>
-					<p class="font-medium">Код товара</p>
-					<p>
+				<li style="justify-content: space-between;">
+					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Код товара</p>
+					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_sku; ?>
 					</p>
 				</li> 
-				<li>
-					<p class="font-medium">Состав</p>
-					<p>
+				<li style="justify-content: space-between;">
+					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Состав</p>
+					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_compound; ?>
 					</p>
 				</li> 
-				<li>
-					<p class="font-medium">Объём</p>
-					<p>
+				<li style="justify-content: space-between;">
+					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Объём</p>
+					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_volume; ?>
 					</p>
 				</li>
-				<li>
-					<p class="font-medium">Вязкость SAE</p>
-					<p>
+				<li style="justify-content: space-between;">
+					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Вязкость SAE</p>
+					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_viscosity; ?>
 					</p>
 				</li>
 
-				<li>
-					<p class="font-medium">Класс по API</p>
-					<p>
+				<li style="justify-content: space-between;">
+					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Класс по API</p>
+					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_class; ?>
 					</p>
 				</li>

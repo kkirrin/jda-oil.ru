@@ -21,7 +21,7 @@ get_header();
 
 
 ?>
-	<div class="container">
+	<div class="container__special--woo">
 		<?php
 			/**
 			* Hook: woocommerce_before_main_content.
@@ -34,7 +34,7 @@ get_header();
 		?>
 	</div>
 
-<div class="container">
+<div class="container__special--woo">
 	<header class="woocommerce-products-header">
 	<?php if (apply_filters('woocommerce_show_page_title', true)): ?>
 		<div class="flex md:flex-row flex-col md:justify-between justify-start md:items-center items-start">
@@ -68,7 +68,7 @@ get_header();
 </header>
 	<!-- Тут меню будет -->
 	<section class="mt-[24px] mb-[120px]" data-scroll="">
-		<div class="container">  
+		<div class="">  
 			
 				
 			<div class="flex md:flex-row flex-col gap-[50px]">
