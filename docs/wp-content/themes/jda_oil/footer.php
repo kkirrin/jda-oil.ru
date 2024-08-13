@@ -7,13 +7,14 @@
                     <div>
                         <ul class="flex flex-col">
                             <li class="text-dark-green text-[16px]">Пн — СБ с 10:00 до 18:00</li>
-                            <li><a href="+79841922217" class="text-dark-green text-[16px]">+7 (984) 192‒22‒17</a></li>
+                            <li><a href="tel:+<?php echo get_field('phone_header-bot', 'option'); ?>" class="text-dark-green text-[16px]"><?php echo get_field('phone_header'); ?></a></li>
                         </ul>
                     </div>    
                     <div class="md:block hidden">
                         <ul class="flex flex-col gap-[5px]">
                             <li class="text-dark-green text-[16px]">По всем вопросам писать на:</li>
-                            <li><a href="mailto:jdaoil@mail.ru" class="text-dark-green text-[16px]">jdaoil@mail.ru</a></li>
+                            <li><a href="mailto:<?php echo get_field('email_header', 'option'); ?>" class="text-dark-green text-[16px]"><?php echo get_field('email_header'); ?>
+                            </a></li>
                         </ul>
                     </div>    
                 </div>
@@ -32,9 +33,15 @@
                                     Мы в соцсетях
                                 </p>
                                 <div class="flex gap-[10px]">
-                                    <img src="<?php echo get_template_directory_uri() .'/src/img/icons/tg_dark_green.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() .'/src/img/icons/vk_dark_green.svg'; ?>" alt="">
-                                    <img src="<?php echo get_template_directory_uri() .'/src/img/icons/youtube_dark_green.svg'; ?>" alt="">     
+                                    <a href="<?php echo get_field('tg_header', 'option'); ?>">
+                                        <img src="<?php echo get_template_directory_uri() .'/src/img/icons/tg_dark_green.svg'; ?>" alt="">
+                                    </a>
+                                    <a href="<?php echo get_field('vk_header', 'option'); ?>">
+                                        <img src="<?php echo get_template_directory_uri() .'/src/img/icons/vk_dark_green.svg'; ?>" alt="">
+                                    </a>
+                                    <a href="<?php echo get_field('you_header', 'option'); ?>">
+                                        <img src="<?php echo get_template_directory_uri() .'/src/img/icons/youtube_dark_green.svg'; ?>" alt="">     
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -46,9 +53,15 @@
                             Мы в соцсетях
                         </p>
                         <div class="flex gap-[10px]">
+                        <a href="<?php echo get_field('tg_header', 'option'); ?>">
                             <img src="<?php echo get_template_directory_uri() .'/src/img/icons/tg_dark_green.svg'; ?>" alt="">
+                        </a>
+                        <a href="<?php echo get_field('vk_header', 'option'); ?>">
                             <img src="<?php echo get_template_directory_uri() .'/src/img/icons/vk_dark_green.svg'; ?>" alt="">
+                        </a>
+                        <a href="<?php echo get_field('you_header', 'option'); ?>">
                             <img src="<?php echo get_template_directory_uri() .'/src/img/icons/youtube_dark_green.svg'; ?>" alt="">
+                        </a>
                         
                         </div>
                     </div>
@@ -57,7 +70,9 @@
                 <div class="md:hidden block">
                     <ul class="flex flex-col gap-[5px]">
                         <li class="text-dark-green text-[16px] ">По всем вопросам писать на:</li>
-                        <li><a href="mailto:jdaoil@mail.ru" class="text-dark-green text-[16px] ">jdaoil@mail.ru</a></li>
+                        <li>
+                            <a href="mailto:<?php echo get_field('email_header'); ?>" class="text-dark-green text-[16px]"><?php echo get_field('email_header'); ?></a>
+                        </li>
                     </ul>
                 </div>    
             </div>

@@ -4,14 +4,15 @@
     */
 ?>
 
+<?php if(is_user_logged_in() && is_super_admin()) { ?>
 
 <?php get_header(); ?>
 
     <main>
         <h1 class="visually-hidden">Скрытый заголовок</h1>
 
-        <section class="main-swiper overflow-hidden" data-scroll>
-            <div class="main-wrapper overflow-hidden md:h-[86vh] h-[60vh]">
+        <section class="main-swiper overflow-hidden container__special" style="padding-top: 20px;" data-scroll>
+            <div class="main-wrapper overflow-hidden">
                 <div class="main-item relative">
                     <div class="swiper-pagination"></div>
                     
@@ -33,8 +34,8 @@
                                         foreach($photos as $key => $photo) { 
                                             foreach($banner_name as $name)
                                             echo '
-                                                <div class="swiper-slide relative bg-black -z-10  h-screen" style="background-image: url('. $photo["url"] .'); background-repeat: no-repeat; background-size: cover;">
-                                                    <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10">
+                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url('. $photo["url"] .'); background-repeat: no-repeat;">
+                                                    <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
                                                         <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
                                                             ' . $name["name_banner"] . '
                                                         </h2>
@@ -48,6 +49,8 @@
                       
                         
                     </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
             <div class="bg-green py-[12px] md:hidden sm:hidden block">
@@ -194,10 +197,10 @@
                     </div>
                 </div>
 
-                <div class="md:my-[120px] my-[80px] relative border border-dark-green">
-                    <img class="md:block hidden absolute left-0 top-0" src="<?php echo get_template_directory_uri() . '/src/img/icons/about_bg.png'; ?>" alt="">
-                    <img class="md:block hidden absolute right-0" src="<?php echo get_template_directory_uri() . '/src/img/icons/about_bg_right.png'; ?>" alt="">
-                    <div class="md:pt-[106px] md:pb-[76px] md:px-[80px] p-[20px] pt-[10px] pb-[10px] md:relative absolute">
+                <div class="py-[80px]">
+                    <!-- <img class="" src="<?php echo get_template_directory_uri() . '/src/img/main/Frame 124.png'; ?>" alt=""> -->
+                    <!-- <img class="md:block hidden absolute right-0" src="<?php echo get_template_directory_uri() . '/src/img/icons/about_bg_right.png'; ?>" alt=""> -->
+                    <!-- <div class="md:pt-[106px] md:pb-[76px] md:px-[80px] p-[20px] pt-[10px] pb-[10px] md:relative absolute"> -->
 
                     <?php
                         $my_posts = get_posts(array(
@@ -206,14 +209,29 @@
                         if (!empty($my_posts)) {
                             foreach ($my_posts as $post) {
                                 echo '
-                                    <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green md:px-[50px] md:py-[10px] px-[46px] py-[24px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
-                                    <p class="text-dark-green z-10 md:text-[65px] sm:text-[30px] text-[25px] md:max-w-[700px] w-auto">' . get_field('text_promotion', $post->ID) . '</p>
+                                    <img class="" src="'.get_field('promo_img').'" alt="">;
                                 ';
                             }
                         }
+                        
                     ?>
-                    </div>
-                    <img style="width: -webkit-fill-available;" class="md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/main/about_s.png'; ?>" alt="">
+
+                    <?php
+                        // $my_posts = get_posts(array(
+                        //     'post_type' => 'promotion',
+                        // ));      
+                        // if (!empty($my_posts)) {
+                        //     foreach ($my_posts as $post) {
+                        //         echo '
+                        //             <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green md:px-[50px] md:py-[10px] px-[46px] py-[24px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
+                        //             <p class="text-dark-green z-10 md:text-[65px] sm:text-[30px] text-[25px] md:max-w-[700px] w-auto">' . get_field('text_promotion', $post->ID) . '</p>
+                        //         ';
+                        //     }
+                        // }
+                        
+                    ?>
+                    <!-- </div> -->
+                    <!-- <img style="width: -webkit-fill-available;" class="md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/main/about_s.png'; ?>" alt=""> -->
                 </div>
                 
             </div>
@@ -268,3 +286,7 @@
 
 
 <?php get_footer(); ?>
+
+<?php } else {?>
+<div style="text-align: center;">Сайт находится в разработке</div>
+<?php } ?>

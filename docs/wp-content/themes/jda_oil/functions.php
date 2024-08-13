@@ -171,25 +171,50 @@ function theme_add_scripts()
             )
         );
     };
+    
+     // Добавляет вкладку и новый тип записей
+     add_action('init', 'create_promotion_type_header');
+    function create_promotion_type_header() {
+        register_post_type(
+            'promotion-header',
+            array(
+               'public' => true,
+               'has_archive' => true,
+               'exclude_from_search' => true,
+               'rewrite' => array(
+                    'slug' => 'promotion_header',
+                    'with_front' => false,
+                ),
+               'labels' => array(
+                'name' => 'Акция в шапке',
+                'singular_name' => 'Акция в шапке',
+                'menu_name' => 'Акция в шапке',
+                'all_items' => 'Акция в шапке',
+               ) ,
+               'supports' => array('title', 'editor', 'thumbnail', 'custom-fields', 'page-attributes'),
+               'taxonomies' => array('category')
+            )
+        );
+    };
 
 
     add_action('admin_menu', 'remove_default_menus');
 
     function remove_default_menus()
     {
-        remove_menu_page('edit.php');                  // Консоль
-        remove_menu_page('index.php');                  // Консоль
-        remove_menu_page('upload.php');                 // Медиафайлы
-        remove_menu_page('edit.php?post_type=page');    // Страницы
-        remove_menu_page('edit-comments.php');          // Комментарии
-        remove_menu_page('themes.php');                 // Внешний вид
-        remove_menu_page('plugins.php');                // Плагины
-        remove_menu_page('users.php');                  // Пользователи
-        remove_menu_page('tools.php');                  // Инструменты 
-        remove_menu_page('options-general.php');        // Настройки
-        remove_menu_page('wpcf7');   // Contact form 7
-        remove_menu_page('aiowpsec');   // wp security
-        remove_menu_page('edit.php?post_type=acf-field-group');   // ACF Field Group
+        // remove_menu_page('edit.php');                  // Консоль
+        // remove_menu_page('index.php');                  // Консоль
+        // remove_menu_page('upload.php');                 // Медиафайлы
+        // remove_menu_page('edit.php?post_type=page');    // Страницы
+        // remove_menu_page('edit-comments.php');          // Комментарии
+        // remove_menu_page('themes.php');                 // Внешний вид
+        // remove_menu_page('plugins.php');                // Плагины
+        // remove_menu_page('users.php');                  // Пользователи
+        // remove_menu_page('tools.php');                  // Инструменты 
+        // remove_menu_page('options-general.php');        // Настройки
+        // remove_menu_page('wpcf7');   // Contact form 7
+        // remove_menu_page('aiowpsec');   // wp security
+        // remove_menu_page('edit.php?post_type=acf-field-group');   // ACF Field Group
     }
 
 
@@ -284,6 +309,19 @@ function theme_add_scripts()
         }
 
         wp_die();
+    }
+
+    if (function_exists('acf_add_options_page')) {
+
+        acf_add_options_page(
+            array(
+                'page_title' => 'Редактирование информации и телефонов',
+                'menu_title' => 'Телефоны и контакты',
+                'menu_slug' => 'theme-general-settings',
+                'capability' => 'edit_posts',
+                'redirect' => false
+            )
+        );
     }
 
 ?>

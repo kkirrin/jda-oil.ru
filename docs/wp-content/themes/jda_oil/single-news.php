@@ -24,7 +24,9 @@
                             /
                         </li>
                         <li class="breadcrumb__item">
-                            <span class="opacity-60 text-bg-black">Новости</span>
+                            <a href="?page_id=17" class="font-medium">
+                                <span class="opacity-60 text-bg-black">Новости</span>
+                            </a>
                         </li>
                         <li class="opacity-60 text-bg-black">
                             /
@@ -39,7 +41,7 @@
 
         <section id="news" class="mt-[24px] mb-[120px]">
             <div class="container">
-                <h3>Масло для водной техники</h3>
+                <h3><?php echo get_field('name_news'); ?></h3>
                 <div class="md:max-w-[80%] max-w-[100%]">
                     <?php echo the_content(); ?>
                 </div>
