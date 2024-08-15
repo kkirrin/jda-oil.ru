@@ -205,6 +205,23 @@
         </section>
 
 
+        <section id="popup6" class="popup">
+            <div class="popup__body popup__body--new">
+                <div class="popup__content">
+                    <button class="popup__btn close-popup" aria-label="Закрыть" tabindex="4">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="18" viewBox="0 0 23 18" fill="none">
+                            <path d="M4 1.45508L19.9099 17.365" stroke="#333" />
+                            <path d="M4.54492 16.9099L20.4548 1.00001" stroke="#333" />
+                        </svg>
+                    </button>
+                    <h2 class="text-start text-dark-green z-10  md:text-4xl text-xl pb-7 font-bold">Если вы хотите купить в розницу, то посетите один из наших филиалов</h2>
+
+                    <img src="<?php echo get_field('cklad', 'option'); ?>" alt="">
+                </div>
+            </div>
+        </section>
+
+
 
 
         <div class="pb-[20px]">

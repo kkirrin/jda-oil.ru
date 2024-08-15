@@ -165,7 +165,7 @@
                             echo '              </div>';
                             echo '              <p class="oil__list-item--price">' . $product_price . '</p>';
                             echo '              <div class="oil__list-item--buttons">';
-                            echo '                  <button style="width: -webkit-fill-available;" class="btn-white p-[10px] bg-white text-center">В розницу</button>';
+                            echo '                  <object class="btn-white p-[10px] bg-white text-center" style="width: -webkit-fill-available;"><a href="#popup6" class="popup-link">В розницу</a></object>';
                             echo '                  <button style="width: -webkit-fill-available;" class="btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</button>';
                             echo '              </div>';
                             echo '          </div>';

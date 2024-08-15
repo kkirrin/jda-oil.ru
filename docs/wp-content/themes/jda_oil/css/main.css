@@ -188,6 +188,15 @@
   text-align: start;
 }
 
+.popup__body--new .popup__content {
+    max-width: -webkit-fill-available !important;
+    min-height: -webkit-fill-available !important;
+}
+
+.popup__body--new .popup__content img{
+   width: -webkit-fill-available !important;
+}
+
 .form-wrapper {
   display: flex;
   flex-direction: column;
@@ -3577,3 +3586,7 @@ table.table {
     flex-direction: column !important;
   }
 }
+
+/* .oil__list > a.darkluplite--link{
+  display: none !important;
+} */
