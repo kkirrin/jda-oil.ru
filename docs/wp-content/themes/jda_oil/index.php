@@ -1,12 +1,12 @@
-<?php 
-    /*
+<?php
+/*
     Template Name: главная
     */
 ?>
 
-<?php if(is_user_logged_in() && is_super_admin()) { ?>
+<?php if (is_user_logged_in() && is_super_admin()) { ?>
 
-<?php get_header(); ?>
+    <?php get_header(); ?>
 
     <main>
         <h1 class="visually-hidden">Скрытый заголовок</h1>
@@ -15,55 +15,57 @@
             <div class="main-wrapper overflow-hidden">
                 <div class="main-item relative">
                     <div class="swiper-pagination"></div>
-                    
+
                     <div class="swiper-wrapper">
                         <?php
-                            $my_posts = get_posts(array(
-                                'numberposts' => 25,
-                                'order' => 'title',
-                                'orderby' => 'rand',
-                                'post_type' => 'slide',
-                            ));
+                        $my_posts = get_posts(array(
+                            'numberposts' => 25,
+                            'order' => 'title',
+                            'orderby' => 'rand',
+                            'post_type' => 'slide',
+                        ));
 
-                            if(!empty($my_posts)) {
-                                foreach($my_posts as $post) :
-                                    $photos = get_field('photo_banner');
-                                    $banner_name = get_field('name_banner'); 
+                        if (!empty($my_posts)) {
+                            foreach ($my_posts as $post) :
+                                $photos = get_field('photo_banner');
+                                $banner_name = get_field('name_banner');
 
-                                    if(!empty($photos)) {
-                                        foreach($photos as $key => $photo) { 
-                                            foreach($banner_name as $name)
+                                if (!empty($photos)) {
+                                    foreach ($photos as $key => $photo) {
+                                        foreach ($banner_name as $name)
                                             echo '
-                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url('. $photo["url"] .'); background-repeat: no-repeat;">
+                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url(' . $photo["url"] . '); background-repeat: no-repeat;">
                                                     <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
                                                         <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
                                                             ' . $name["name_banner"] . '
                                                         </h2>
                                                     </div>
                                                 </div>';
-                                        }
                                     }
-                                endforeach;
-                            };
+                                }
+                            endforeach;
+                        };
                         ?>
-                      
-                        
+
+
                     </div>
                     <div class="swiper-button-prev"></div>
                     <div class="swiper-button-next"></div>
                 </div>
             </div>
             <div class="bg-green py-[12px] md:hidden sm:hidden block">
-                <p class="text-white text-center">Летняя акция — скидка 10% на заказы конкретной категории</p>
+                <p class="text-white text-center">
+                    <?php echo get_field('promo_header', 'option'); ?>
+                </p>
             </div>
-        </section>        
-        
+        </section>
+
         <section class="md:py-[30px] py-[80px]" data-scroll>
             <div class="container">
                 <div class="bg-green py-[10px]">
-                    <h3 class="text-white text-center md:text-[40px] text-[24px]">Подобрать масло</h3 >
+                    <h3 class="text-white text-center md:text-[40px] text-[24px]">Подобрать масло</h3>
                 </div>
-                
+
                 <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Марка</label>
@@ -71,7 +73,7 @@
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Модель</label>
-                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green"  placeholder="Модель">
+                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Модель">
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер кузова</label>
@@ -82,13 +84,13 @@
                         <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year" placeholder="Год">
                             <option value="">Год</option>
                             <?php
-                                for($year = (int) date('Y'); $year >= 1950; $year--) {
+                            for ($year = (int) date('Y'); $year >= 1950; $year--) {
                             ?>
-                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                             <?php
-                                }
+                            }
                             ?>
-                </select>
+                        </select>
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер двигателя</label>
@@ -112,68 +114,66 @@
                         <a href="/?page_id=52" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
                             <span class="text-dark-green">Смотреть все</span>
                             <svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00"/>
+                                <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00" />
                             </svg>
-                                
+
                         </a>
                     </div>
                 </div>
 
                 <div class="oil__list">
 
-                    <?php                         
-                        $args = array(
-                            'post_type' => 'product'
-                        );
+                    <?php
+                    $args = array(
+                        'post_type' => 'product'
+                    );
 
-                        $query = new WP_Query($args);
-                        if ($query->have_posts()) {
-                            while ($query->have_posts()) {
-                                $query->the_post();
-                                $terms = get_the_terms($post->ID, 'product_cat');
+                    $query = new WP_Query($args);
+                    if ($query->have_posts()) {
+                        while ($query->have_posts()) {
+                            $query->the_post();
+                            $terms = get_the_terms($post->ID, 'product_cat');
 
-                                $product = wc_get_product(get_the_ID());
-                                $product_name = $product->get_name();
-                                $product_sku = $product->get_sku();
-                                $product_image = wp_get_attachment_url($product->get_image_id());
-                                $product_price = $product->get_price_html();
-                                $product_link = $product->get_permalink();
+                            $product = wc_get_product(get_the_ID());
+                            $product_name = $product->get_name();
+                            $product_sku = $product->get_sku();
+                            $product_image = wp_get_attachment_url($product->get_image_id());
+                            $product_price = $product->get_price_html();
+                            $product_link = $product->get_permalink();
 
-                                $product_class = $product->get_attribute('pa_class'); 
-                                $product_compound = $product->get_attribute('pa_compound');
-                                $product_viscosity = $product->get_attribute('pa_viscosity');
-                                $product_volume = $product->get_attribute('pa_volume');
+                            $product_class = $product->get_attribute('pa_class');
+                            $product_compound = $product->get_attribute('pa_compound');
+                            $product_viscosity = $product->get_attribute('pa_viscosity');
+                            $product_volume = $product->get_attribute('pa_volume');
 
-                                echo '<a href="'. $product_link .'">';
-                                echo '  <div class="oil__list-item">';
-                                echo '      <img class="item-img" src="'. $product_image .'" alt="">';
-                                echo '          <div class="item-content">';
-                                echo '              <p class="item-title">'. $product_name .'</p>';
-                                echo '              <div class="item-list">';
-                                echo '                  <ul class="list--first">';
-                                echo '                      <li>Класс</li>';
-                                echo '                      <li>Состав</li>';
-                                echo '                      <li>Объём</li>';
-                                echo '                  </ul>';
-                                echo '                  <ul class="list--second">';
-                                echo '                      <li>'. $product_class .'</li>';
-                                echo '                      <li>'. $product_compound .'</li>';
-                                echo '                      <li>'. $product_volume .'</li>';
-                                echo '                  </ul>';
-                                echo '              </div>';
-                                echo '              <p class="oil__list-item--price">'. $product_price .'</p>';
-                                echo '              <div class="oil__list-item--buttons">';
-                                echo '                  <button style="width: -webkit-fill-available;" class="btn-white p-[10px] bg-white text-center">В розницу</button>';
-                                echo '                  <button style="width: -webkit-fill-available;" class="btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</button>';
-                                echo '              </div>';
-                                echo '          </div>';
-                                echo '      </div>';
-                                echo '  </a>';
-
-
-                            }
+                            echo '<a href="' . $product_link . '">';
+                            echo '  <div class="oil__list-item">';
+                            echo '      <img class="item-img" src="' . $product_image . '" alt="">';
+                            echo '          <div class="item-content">';
+                            echo '              <p class="item-title">' . $product_name . '</p>';
+                            echo '              <div class="item-list">';
+                            echo '                  <ul class="list--first">';
+                            echo '                      <li>Класс</li>';
+                            echo '                      <li>Состав</li>';
+                            echo '                      <li>Объём</li>';
+                            echo '                  </ul>';
+                            echo '                  <ul class="list--second">';
+                            echo '                      <li>' . $product_class . '</li>';
+                            echo '                      <li>' . $product_compound . '</li>';
+                            echo '                      <li>' . $product_volume . '</li>';
+                            echo '                  </ul>';
+                            echo '              </div>';
+                            echo '              <p class="oil__list-item--price">' . $product_price . '</p>';
+                            echo '              <div class="oil__list-item--buttons">';
+                            echo '                  <button style="width: -webkit-fill-available;" class="btn-white p-[10px] bg-white text-center">В розницу</button>';
+                            echo '                  <button style="width: -webkit-fill-available;" class="btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</button>';
+                            echo '              </div>';
+                            echo '          </div>';
+                            echo '      </div>';
+                            echo '  </a>';
                         }
-                        wp_reset_postdata(); // Reset the post data
+                    }
+                    wp_reset_postdata(); // Reset the post data
                     ?>
                 </div>
             </div>
@@ -203,37 +203,37 @@
                     <!-- <div class="md:pt-[106px] md:pb-[76px] md:px-[80px] p-[20px] pt-[10px] pb-[10px] md:relative absolute"> -->
 
                     <?php
-                        $my_posts = get_posts(array(
-                            'post_type' => 'promotion',
-                        ));      
-                        if (!empty($my_posts)) {
-                            foreach ($my_posts as $post) {
-                                echo '
-                                    <img class="" src="'.get_field('promo_img').'" alt="">;
+                    $my_posts = get_posts(array(
+                        'post_type' => 'promotion',
+                    ));
+                    if (!empty($my_posts)) {
+                        foreach ($my_posts as $post) {
+                            echo '
+                                    <img class="" src="' . get_field('promo_img') . '" alt="">;
                                 ';
-                            }
                         }
-                        
+                    }
+
                     ?>
 
                     <?php
-                        // $my_posts = get_posts(array(
-                        //     'post_type' => 'promotion',
-                        // ));      
-                        // if (!empty($my_posts)) {
-                        //     foreach ($my_posts as $post) {
-                        //         echo '
-                        //             <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green md:px-[50px] md:py-[10px] px-[46px] py-[24px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
-                        //             <p class="text-dark-green z-10 md:text-[65px] sm:text-[30px] text-[25px] md:max-w-[700px] w-auto">' . get_field('text_promotion', $post->ID) . '</p>
-                        //         ';
-                        //     }
-                        // }
-                        
+                    // $my_posts = get_posts(array(
+                    //     'post_type' => 'promotion',
+                    // ));      
+                    // if (!empty($my_posts)) {
+                    //     foreach ($my_posts as $post) {
+                    //         echo '
+                    //             <p class="md:mb-[40px] mb-[20px] z-10 text-dark-green md:text-[89px] sm:text-[60px] text-[37px] border border-dark-green md:px-[50px] md:py-[10px] px-[46px] py-[24px] md:w-max w-auto">' . get_field('name_promo', $post->ID) . ':</p>
+                    //             <p class="text-dark-green z-10 md:text-[65px] sm:text-[30px] text-[25px] md:max-w-[700px] w-auto">' . get_field('text_promotion', $post->ID) . '</p>
+                    //         ';
+                    //     }
+                    // }
+
                     ?>
                     <!-- </div> -->
                     <!-- <img style="width: -webkit-fill-available;" class="md:hidden block" src="<?php echo get_template_directory_uri() . '/src/img/main/about_s.png'; ?>" alt=""> -->
                 </div>
-                
+
             </div>
         </section>
 
@@ -248,36 +248,36 @@
                         <a href="/?page_id=17" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
                             <span class="text-dark-green">Смотреть все</span>
                             <svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00"/>
+                                <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00" />
                             </svg>
-                                
+
                         </a>
                     </div>
                 </div>
 
                 <div class="news-list">
                     <?php
-                        $my_posts = get_posts(array(
-                            'numberposts' => 25,
-                            'order' => 'title',
-                            'orderby' => 'rand',
-                            'post_type' => 'news',
-                        ));
-                        
-                        foreach($my_posts as $post) {
-                            echo '
-                                <a href="'. get_permalink($post->ID) .'">
+                    $my_posts = get_posts(array(
+                        'numberposts' => 25,
+                        'order' => 'title',
+                        'orderby' => 'rand',
+                        'post_type' => 'news',
+                    ));
+
+                    foreach ($my_posts as $post) {
+                        echo '
+                                <a href="' . get_permalink($post->ID) . '">
                                     <div class="news-list--item">
                                         <div class="overflow-hidden">
-                                            <img src="'. get_field('photo_news') .'" alt="" class="news-list--item__img">
+                                            <img src="' . get_field('photo_news') . '" alt="" class="news-list--item__img">
                                         </div>
-                                        <date class="news-list--item__date">'. get_field('date_news') .'</date>
-                                        <article class="news-list--item__name">'. get_field('name_news') .'</article>
+                                        <date class="news-list--item__date">' . get_field('date_news') . '</date>
+                                        <article class="news-list--item__name">' . get_field('name_news') . '</article>
                                     </div>
                                 </a>';
-                            };
+                    };
                     ?>
-                    
+
                 </div>
             </div>
         </section>
@@ -285,8 +285,8 @@
 
 
 
-<?php get_footer(); ?>
+    <?php get_footer(); ?>
 
-<?php } else {?>
-<div style="text-align: center;">Сайт находится в разработке</div>
+<?php } else { ?>
+    <div style="text-align: center;">Сайт находится в разработке</div>
 <?php } ?>
