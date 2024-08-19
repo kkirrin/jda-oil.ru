@@ -8,15 +8,15 @@
 }
 
 #oil__main .oil__list .oil__list-item {
-    border: 1px solid var(--dark-green);
+    border: 1px solid rgba(128, 128, 128, .16);;
     max-height: 485px;
     display: flex;
     flex-direction: column;
 }
 
 #oil__main .oil__list .oil__list-item .item-content{
-    border-top: 1px solid var(--dark-green);
-    border-bottom: 1px solid var(--dark-green);
+    border-top: 1px solid rgba(128, 128, 128, .16);;
+    border-bottom: 1px solid rgba(128, 128, 128, .16);;
     display: flex;
     flex-direction: column;
     padding: 4px;
@@ -56,7 +56,7 @@
 #oil__main .oil__list .oil__list-item .oil__list-item--price{
     text-align: end;
     padding: 10px;
-    border-bottom: 1px solid var(--dark-green);
+    border-bottom: 1px solid rgba(128, 128, 128, .16);
 }
 
 #oil__main .oil__list {

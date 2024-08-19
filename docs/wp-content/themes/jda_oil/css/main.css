@@ -439,8 +439,8 @@
 
 
 #oil__main .oil__list .oil__list-item .item-content{
-  border-top: 1px solid var(--dark-green);
-  border-bottom: 1px solid var(--dark-green);
+  border-top: 1px solid rgba(128, 128, 128, .16);
+  border-bottom: 1px solid rgba(128, 128, 128, .16);
   display: flex;
   flex-direction: column;
 }
@@ -503,8 +503,8 @@
 
 #oil__main .oil__list .oil__list-item .oil__list-item--price{
   text-align: end;
-  border-top: 1px solid var(--dark-green);
-  border-bottom: 1px solid var(--dark-green);
+  border-top: 1px solid rgba(128, 128, 128, .16);
+  border-bottom: 1px solid rgba(128, 128, 128, .16);
   font-weight: 600;
   font-size: 20px;
   padding: 10px 20px;
@@ -3590,3 +3590,16 @@ table.table {
 /* .oil__list > a.darkluplite--link{
   display: none !important;
 } */
+
+
+.products.columns-4.wpc--darkluplite-element.darkluplite--text-after.darkluplite--text-before li{
+  margin: 0 1% 2.992em 0 !important;
+}
+
+.entry-summary-wrapper.wpc--darkluplite-element {
+  width: max-content;
+  align-items: center;
+}
+.cart.wpc--darkluplite-element.darkluplite--text-after.darkluplite--text-before {
+  margin-bottom: 0 !important;
+}

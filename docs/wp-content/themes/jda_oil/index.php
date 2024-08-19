@@ -125,7 +125,9 @@
 
                     <?php
                     $args = array(
-                        'post_type' => 'product'
+                        'post_type' => 'product',
+                        'posts_per_page' => 8,
+                        'orderby' => 'rand',
                     );
 
                     $query = new WP_Query($args);
@@ -147,7 +149,7 @@
                             $product_volume = $product->get_attribute('pa_volume');
 
                             echo '<a href="' . $product_link . '">';
-                            echo '  <div class="oil__list-item">';
+                            echo '  <div class="oil__list-item" style="border: 1px solid rgba(128, 128, 128, .16);">';
                             echo '      <img class="item-img" src="' . $product_image . '" alt="">';
                             echo '          <div class="item-content">';
                             echo '              <p class="item-title">' . $product_name . '</p>';

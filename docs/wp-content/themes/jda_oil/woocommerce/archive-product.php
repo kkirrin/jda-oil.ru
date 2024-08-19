@@ -116,7 +116,10 @@ get_header();
 					<ul id="catalog__list" class="flex flex-col gap-[20px]">
 						<?php
 						$args = array(
-							'post_type' => 'product'
+							'post_type' => 'product',
+							'orderby' => 'menu_order',
+							'order' => 'asc',
+
 						);
 
 						$query = new WP_Query($args);
@@ -139,7 +142,7 @@ get_header();
 								$product_id = $product->get_id();
 
 								echo '<a href="' . $product_link . '">';
-								echo '  <li class="flex md:flex-row flex-col gap-[20px] justify-between border-b border-dark-green pb-[30px]">';
+								echo '  <li class="flex md:flex-row flex-col gap-[20px] justify-between border-b border-dark-green pb-[15px]">';
 								echo '      <div class="border border-dark-green p-[20px]">';
 								echo '          <img src="' . $product_image . '" alt="">';
 								echo '      </div>';

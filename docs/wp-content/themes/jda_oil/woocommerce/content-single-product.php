@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying product content in the single-product.php template
  *
@@ -24,7 +25,7 @@ $short_description = $product->get_short_description();
 $attr = $product->get_attributes();
 
 // обращаемся по ключу к каждому атрибуту
-$product_class = $product->get_attribute('pa_class'); 
+$product_class = $product->get_attribute('pa_class');
 $product_compound = $product->get_attribute('pa_compound');
 $product_viscosity = $product->get_attribute('pa_viscosity');
 $product_volume = $product->get_attribute('pa_volume');
@@ -32,6 +33,10 @@ $product_sku = $product->get_sku();
 
 $product_price = $product->get_price_html();
 $product_id = $product->get_id();
+$product_desc = $product->get_description();
+
+
+
 
 
 
@@ -70,19 +75,19 @@ if (post_password_required()) {
 
 		<div class="single-product__description">
 			<ul class="single-product__list">
-				
+
 				<li style="justify-content: space-between;">
 					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Код товара</p>
 					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_sku; ?>
 					</p>
-				</li> 
+				</li>
 				<li style="justify-content: space-between;">
 					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Состав</p>
 					<p style="color: rgb(13, 43, 0);">
 						<?php echo $product_compound; ?>
 					</p>
-				</li> 
+				</li>
 				<li style="justify-content: space-between;">
 					<p class="font-medium md:text-[16px] text-[14px]" style="color: rgb(153, 153, 153);">Объём</p>
 					<p style="color: rgb(13, 43, 0);">
@@ -103,7 +108,7 @@ if (post_password_required()) {
 					</p>
 				</li>
 			</ul>
-			
+
 
 			<div class="summary entry-summary">
 				<div class="entry-summary-wrapper">
@@ -124,20 +129,24 @@ if (post_password_required()) {
 					?>
 				</div>
 			</div>
+
+			<div style="max-width: 400px;">
+				<?php echo $product_desc; ?>
+			</div>
 		</div>
 
 	</div>
 
 	<?php
-		/**
-		 * Hook: woocommerce_after_single_product_summary.
-		 *
-		 * @hooked woocommerce_output_product_data_tabs - 10
-		 * @hooked woocommerce_upsell_display - 15
-		 * @hooked woocommerce_output_related_products - 20
-		 */
-		do_action('woocommerce_after_single_product_summary');
-	?> 
+	/**
+	 * Hook: woocommerce_after_single_product_summary.
+	 *
+	 * @hooked woocommerce_output_product_data_tabs - 10
+	 * @hooked woocommerce_upsell_display - 15
+	 * @hooked woocommerce_output_related_products - 20
+	 */
+	do_action('woocommerce_after_single_product_summary');
+	?>
 
 </div>
 
