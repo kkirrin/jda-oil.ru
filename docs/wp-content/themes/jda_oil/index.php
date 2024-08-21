@@ -69,19 +69,27 @@
                 <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Марка</label>
-                        <input type="text" name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Марка">
+                        <select name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                            <option value="">Марка</option>
+                        </select>
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Модель</label>
-                        <input name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" placeholder="Модель">
+                        <select name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                            <option value="">Модель</option>
+
+                        </select>
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер кузова</label>
-                        <input class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" name="kuzov" placeholder="Номер кузова">
+                        <select name="kuzov" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                            <option value="">Номер кузова</option>
+
+                        </select>
                     </div>
                     <div class="flex gap-[10px] flex-col text-green">
                         <label class="text-green">Год</label>
-                        <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green" name="year" placeholder="Год">
+                        <select name="year" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
                             <option value="">Год</option>
                             <?php
                             for ($year = (int) date('Y'); $year >= 1950; $year--) {
@@ -94,7 +102,9 @@
                     </div>
                     <div class="flex gap-[10px] flex-col">
                         <label class="text-green">Номер двигателя</label>
-                        <input name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green" type="text" placeholder="Номер двигателя">
+                        <select name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                            <option value="">Номер двигателя</option>
+                        </select>
                     </div>
                     <div style="width: -webkit-fill-available;">
                         <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[13px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>

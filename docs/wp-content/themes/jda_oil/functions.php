@@ -227,11 +227,10 @@ if (class_exists('WooCommerce')) {
 }
 
 
-add_action('wp_ajax_call_parser', 'parseFile');
-add_action('wp_ajax_nopriv_call_parser', 'parseFile');
+add_action('wp_ajax_get_data', 'getData');
+add_action('wp_ajax_nopriv_get_data', 'getData');
 
-
-function parseFile()
+function getData()
 {
     $path_to_file = '/home/jda6388454/jda-oil.ru/docs/RED_BOOK.csv';
     $path_to_log = '/home/jda6388454/jda-oil.ru/docs/logs/jda_parser_log.txt';
@@ -309,7 +308,6 @@ function parseFile()
         file_put_contents($path_to_log, '[' . date('Y-m-d H:i:s') . '] Error : File ' . $path_to_file . ' is not exist' . PHP_EOL, FILE_APPEND);
         echo 'false';
     }
-
     wp_die();
 }
 

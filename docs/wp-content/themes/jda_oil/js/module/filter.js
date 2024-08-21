@@ -47,50 +47,82 @@
     return filtered_data;
 }
 
+
+
+let data;
 window.addEventListener('DOMContentLoaded', () => {
-    // php_data - из файла functions через wp_localize_script
-    
-    // document.getElementsByName('oil_search')[0].addEventListener('click', function(e) {
+
+    // Получение селектов и обработка файла
+    jQuery.ajax({
+        url: '/wp-admin/admin-ajax.php',
+        type: 'POST',
+        data: {
+            action: 'get_data',
+        },
+        success: function (response) {
+
+            data = JSON.parse(response);
+
+            let marka_options = [];
+            let model_options = [];
+            let kuzov_options = [];
+            let engine_options = [];
+
+            let marka = '<option value="">Марка</option>';
+            let model = '<option value="">Модель</option>';
+            let kuzov = '<option value="">Номер кузова</option>';
+            let engine = '<option value="">Номер двигателя</option>';
+
+            data.forEach(item => {
+                if (marka_options.indexOf(item.maker) === -1) {
+                    marka_options.push(item.maker);
+                    marka += '<option value="' + item.maker + '">' + item.maker + '</option>;'
+                }
+                if (model_options.indexOf(item.car_name) === -1) {
+                    model_options.push(item.car_name);
+                    model += '<option value="' + item.car_name + '">' + item.car_name + '</option>;'
+                }
+                if (kuzov_options.indexOf(item.grade) === -1) {
+                    kuzov_options.push(item.grade);
+                    kuzov += '<option value="' + item.grade + '">' + item.grade + '</option>;'
+                }
+                if (engine_options.indexOf(item.engine) === -1) {
+                    engine_options.push(item.engine);
+                    engine += '<option value="' + item.engine + '">' + item.engine + '</option>;'
+                }
+            });           
+            
+            jQuery('select[name="marka"]').empty().append(marka);
+            jQuery('select[name="model"]').empty().append(model);
+            jQuery('select[name="kuzov"]').empty().append(kuzov);
+            jQuery('select[name="dvig"]').empty().append(engine);
+        }
+    });
+
     jQuery('button[name="oil_search"]').on('click', function(e) {
         e.preventDefault();
-        
-        jQuery.ajax({
-            url: '/wp-admin/admin-ajax.php',
-            type: 'POST',
-            data: {
-                action: 'call_parser',
-            },
-            success: function(response) {
+        const this_submit = jQuery(e.currentTarget);
+        const this_form = this_submit.parents('form').eq(0);
+        const form_elements = this_form.find('select');
+        let filter_options = {};
+        let oils = [];
 
-                json_data = JSON.parse(response);
-                const this_submit = jQuery(e.currentTarget);
-                const this_form = this_submit.parents('form').eq(0);
-                const form_elements = this_form.find('input, select');
-                let filter_options = {};
-                let oils = [];
-
-                form_elements.each((i, form_element) => {
-                    const form_item = jQuery(form_element);
-                    if(form_item.val() != '') {
-                        filter_options[form_item.attr('name')] = form_item.val();
-                    }
-                })
-
-                const filter_data = get_filtered_data(json_data, filter_options);
-                
-                filter_data.forEach(function(item) {
-                    if(oils.indexOf(item['recommend_oil']) === -1) {
-                        oils.push(item['recommend_oil']);
-                        this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
-                    }
-                });                
-            this_form.submit();
-             }
+        form_elements.each((i, form_element) => {
+            const form_item = jQuery(form_element);
+            if(form_item.val() != '') {
+                filter_options[form_item.attr('name')] = form_item.val();
+            }
         })
 
-      
-
+        const filter_data = get_filtered_data(data, filter_options);
         
-
+        filter_data.forEach(function(item) {
+            if(oils.indexOf(item['recommend_oil']) === -1) {
+                oils.push(item['recommend_oil']);
+                this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
+            }
+        });                
+        this_form.submit();
+    
     });
 });

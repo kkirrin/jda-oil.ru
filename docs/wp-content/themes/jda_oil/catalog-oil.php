@@ -39,24 +39,32 @@
             <form action="https://jda-oil.ru/?page_id=52" method="POST" class="grid md:grid-cols-6 sm:grid-cols-3 grid-cols-1 gap-[20px] md:pt-[60px] pt-[20px] md:items-end items-normal">
                 <div class="flex gap-[10px] flex-col">
                     <label class="text-green">Марка</label>
-                    <input value="<?php echo isset($_POST['marka']) ? $_POST['marka'] : ''; ?>" type="text" name="marka" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" placeholder="Марка">
+                    <select name="marka" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                        <option value="">Марка</option>
+                    </select>
                 </div>
                 <div class="flex gap-[10px] flex-col">
                     <label class="text-green">Модель</label>
-                    <input value="<?php echo isset($_POST['model']) ? $_POST['model'] : ''; ?>" name="model" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" placeholder="Модель">
+                    <select name="model" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                        <option value="">Модель</option>
+
+                    </select>
                 </div>
                 <div class="flex gap-[10px] flex-col">
                     <label class="text-green">Номер кузова</label>
-                    <input value="<?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : ''; ?>" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" name="kuzov" placeholder="Номер кузова">
+                    <select name="kuzov" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                        <option value="">Номер кузова</option>
+
+                    </select>
                 </div>
                 <div class="flex gap-[10px] flex-col text-green">
                     <label class="text-green">Год</label>
-                    <select class="border border-dark-green py-[12px] px-[20px] w-auto text-green " name="year" placeholder="Год">
-                        <option class="text-green" value="">Год</option>
+                    <select name="year" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                        <option value="">Год</option>
                         <?php
                         for ($year = (int) date('Y'); $year >= 1950; $year--) {
                         ?>
-                            <option value="<?php echo $year; ?>" <?php echo isset($_POST['year']) && $_POST['year'] == $year ? 'selected' : ''; ?>><?php echo $year; ?></option>
+                            <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
                         <?php
                         }
                         ?>
@@ -64,15 +72,13 @@
                 </div>
                 <div class="flex gap-[10px] flex-col">
                     <label class="text-green">Номер двигателя</label>
-                    <input value="<?php echo isset($_POST['dvig']) ? $_POST['dvig'] : ''; ?>" name="dvig" class=" text-green border border-dark-green py-[12px] px-[20px] w-auto" type="text" placeholder="Номер двигателя">
+                    <select name="dvig" class="border border-dark-green py-[12px] px-[20px] w-auto text-green">
+                        <option value="">Номер двигателя</option>
+                    </select>
                 </div>
-                <div class="my-[5px]" style="width: -webkit-fill-available;">
-                    <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[10px] md:w-auto w-auto text-center bg-green text-white btn-green" type="submit" name="get_maslo">
-                        Подобрать
-                        <span style="width: 10px; height: 10px;" class="download"></span>
-                    </button>
+                <div style="width: -webkit-fill-available;">
+                    <button name="oil_search" style="width: -webkit-fill-available;" class="btn-green p-[13px] md:w-auto w-auto text-center bg-green text-white" type="submit" name="get_maslo">Подобрать</button>
                 </div>
-
             </form>
 
             <table class="table">
@@ -92,8 +98,8 @@
                             <ul>
                                 <li><?php echo isset($_POST['marka']) ? $_POST['marka'] : '-'; ?></li>
                                 <li><?php echo isset($_POST['model']) ? $_POST['model'] : '-'; ?></li>
-                                <li><?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : ''; ?></li>
-                                <li><?php echo isset($_POST['year']) && $_POST['year'] == $year ? 'selected' : '-'; ?></li>
+                                <li><?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : '_'; ?></li>
+                                <li><?php echo isset($_POST['year']) && $_POST['year']  ? $_POST['year']  : '-'; ?></li>
                                 <li><?php echo isset($_POST['dvig']) ? $_POST['dvig'] : '-'; ?></li>
                             </ul>
                         </td>
@@ -231,7 +237,7 @@
                         // var_dump($products);
                         // echo '</pre>';
                         echo '<a href="' . $product_link . '">';
-                        echo ' <li class="flex flex-col gap-[10px]" style="border: 1px solid rgba(128, 128, 128, .16);>';
+                        echo ' <li class="flex flex-col gap-[10px]" style="border: 1px solid rgba(128, 128, 128, .16);">';
                         echo '   <img class="max-w-[200px] m-auto" src="' . $product_image . '" alt="">';
                         echo '    <div class="p-[10px]" style="border-top: 1px solid rgba(128, 128, 128, .16);>';
                         echo '      <p class="font-semibold text-dark-green mb-[10px]">' . $product_name . '</p>';

@@ -2623,7 +2623,7 @@ svg:hover {
 .woocommerce-product-gallery {
   opacity: 1 !important;
   max-width: 580px;
-  border: 1px solid var(--dark-green);
+  /* border: 1px solid var(--dark-green); */
 }
 
 .woocommerce-product-gallery .wp-post-image{
@@ -2645,7 +2645,8 @@ svg:hover {
 }
 
 .related .products li{
-  border: 1px solid rgb(13, 43, 0);
+  /* border: 1px solid rgb(13, 43, 0); */
+  border: 1px solid rgba(128, 128, 128, .16);
   min-width: 340px;
 
 }
@@ -2666,7 +2667,8 @@ svg:hover {
   padding: 20px 20px 5px 20px !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
-  border-top: 1px solid var(--dark-green) !important;
+  /* border-top: 1px solid var(--dark-green) !important; */
+  border-top: 1px solid rgba(128, 128, 128, .16) !important;
 }
 
 .related .products li img{
@@ -2680,7 +2682,8 @@ svg:hover {
   font-size: 20px !important;
   font-weight: 600 !important;
   padding: 20px !important;
-  border-top: 1px solid var(--dark-green) !important;
+  /* border-top: 1px solid var(--dark-green) !important; */
+  border-top: 1px solid rgba(128, 128, 128, .16) !important;
 
 }
 
@@ -2747,7 +2750,9 @@ svg:hover {
 .related .price.wpc--darkluplite-element {
   text-align: end;
   padding: 20px;
-  border-top: 1px solid var(--dark-green);
+  /* border-top: 1px solid var(--dark-green); */
+  border-top: 1px solid rgba(128, 128, 128, .16) !important;
+
 }
 
 
