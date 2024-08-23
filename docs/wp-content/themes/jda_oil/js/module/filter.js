@@ -62,42 +62,145 @@ window.addEventListener('DOMContentLoaded', () => {
         success: function (response) {
 
             data = JSON.parse(response);
-
+            console.log(data);
             let marka_options = [];
-            let model_options = [];
-            let kuzov_options = [];
-            let engine_options = [];
+            // jQuery('select[name="marka"], select[name="model"], select[name="kuzov"], select[name="year"] ,select[name="dvig"]')
+            // let kuzov_options = [];
+            // let engine_options = [];
 
             let marka = '<option value="">Марка</option>';
-            let model = '<option value="">Модель</option>';
-            let kuzov = '<option value="">Номер кузова</option>';
-            let engine = '<option value="">Номер двигателя</option>';
+            // let model = '<option value="">Модель</option>';
+            // let kuzov = '<option value="">Номер кузова</option>';
+            // let engine = '<option value="">Номер двигателя</option>';
 
             data.forEach(item => {
                 if (marka_options.indexOf(item.maker) === -1) {
                     marka_options.push(item.maker);
                     marka += '<option value="' + item.maker + '">' + item.maker + '</option>;'
                 }
-                if (model_options.indexOf(item.car_name) === -1) {
-                    model_options.push(item.car_name);
-                    model += '<option value="' + item.car_name + '">' + item.car_name + '</option>;'
-                }
-                if (kuzov_options.indexOf(item.grade) === -1) {
-                    kuzov_options.push(item.grade);
-                    kuzov += '<option value="' + item.grade + '">' + item.grade + '</option>;'
-                }
-                if (engine_options.indexOf(item.engine) === -1) {
-                    engine_options.push(item.engine);
-                    engine += '<option value="' + item.engine + '">' + item.engine + '</option>;'
-                }
+                // if (model_options.indexOf(item.car_name) === -1) {
+                //     model_options.push(item.car_name);
+                //     model += '<option value="' + item.car_name + '">' + item.car_name + '</option>;'
+                // }
+                // if (kuzov_options.indexOf(item.grade) === -1) {
+                //     kuzov_options.push(item.grade);
+                //     kuzov += '<option value="' + item.grade + '">' + item.grade + '</option>;'
+                // }
+                // if (engine_options.indexOf(item.engine) === -1) {
+                //     engine_options.push(item.engine);
+                //     engine += '<option value="' + item.engine + '">' + item.engine + '</option>;'
+                // }
             });           
             
             jQuery('select[name="marka"]').empty().append(marka);
-            jQuery('select[name="model"]').empty().append(model);
-            jQuery('select[name="kuzov"]').empty().append(kuzov);
-            jQuery('select[name="dvig"]').empty().append(engine);
+            // jQuery('select[name="model"]').empty().append(model);
+            // jQuery('select[name="kuzov"]').empty().append(kuzov);
+            // jQuery('select[name="dvig"]').empty().append(engine);
         }
     });
+
+    const selects = jQuery('select[name="marka"], select[name="model"], select[name="kuzov"], select[name="year"] ,select[name="dvig"]');
+
+    selects.on('change', function (e) { 
+
+        const this_select = jQuery(e.currentTarget);
+
+        switch (this_select.attr('name')) {
+            case 'marka':
+                let model_options = [];
+                let model = '<option value="">Модель</option>';
+
+                data.forEach(item => {
+                    if (model_options.indexOf(item.car_name) === -1 && item.maker === this_select.val()){
+                        model_options.push(item.car_name);
+                        model += '<option value="' + item.car_name + '">' + item.car_name + '</option>;'
+                    }
+                });
+
+                jQuery('select[name="model"]').empty().append(model);
+                jQuery('select[name="kuzov"]').empty().append('<option value="">Номер кузова</option>');
+                jQuery('select[name="year"]').empty().append('<option value="">Год</option>');
+                jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
+                
+                break;
+                
+            case 'model':
+                
+                let kuzov_options = [];
+                let kuzov = '<option value="">Номер кузова</option>';
+
+                data.forEach(item => {
+                    if (kuzov_options.indexOf(item.grade) === -1 && item.car_name === this_select.val()) {
+                        kuzov_options.push(item.grade);
+                        kuzov += '<option value="' + item.grade + '">' + item.grade + '</option>;'
+                    }
+                });
+
+                jQuery('select[name="kuzov"]').empty().append(kuzov);
+                jQuery('select[name="year"]').empty().append('<option value="">Год</option>');
+                jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
+                
+                break;
+                
+            case 'kuzov':
+                 
+                let year_min = new Date().getFullYear();
+                let year_max = 1999;
+                let year = '<option value="">Год</option>';
+
+                data.forEach(item => {
+
+                    let from = item.year_from.split('.')[0];
+                    let to = item.year_to !== null ? item.year_to.split('.')[0] : item.year_to;
+
+                    if (Number(from) <= year_min) { 
+                        if (from.length == 2) {
+                            // year_min = Number('20' + from);
+                        } else {
+                            year_min = Number(from);
+                        }
+                    }
+                    if (Number(to) == '') {
+                        year_max = new Date().getFullYear();
+                    }
+                    else if (item.year_to !== null && Number(to) >= year_max) { 
+                        if (to.length == 2) {
+                            // year_max = Number('20' + to);
+                        } else {
+                            year_max = Number(to);
+                        }
+                    }
+
+                });
+
+                    for (let i = year_max; i >= year_min; i--) {
+                        year += '<option value="' + i + '">' + i + '</option>';
+                    }
+
+                    console.log(year_min, year_max);
+
+                    
+                    jQuery('select[name="year"]').empty().append(year);
+                    jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
+                
+                break;
+                
+            case 'year':
+                    let dvig_options = [];
+                    let dvig = '<option value="">Номер двигателя</option>';
+
+                    data.forEach(item => {
+                        if (dvig_options.indexOf(item.engine) === -1 && item.year_from >= this_select.val() && item.year_to <= this_select.val()) {
+                            dvig_options.push(item.engine);
+                            dvig += '<option value="' + item.engine + '">' + item.engine + '</option>;'
+                        }
+                    });
+
+                    jQuery('select[name="dvig"]').empty().append(dvig);
+                break;
+                
+        }
+    })
 
     jQuery('button[name="oil_search"]').on('click', function(e) {
         e.preventDefault();
@@ -125,4 +228,7 @@ window.addEventListener('DOMContentLoaded', () => {
         this_form.submit();
     
     });
+
+   
+
 });
