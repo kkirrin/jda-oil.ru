@@ -142,62 +142,63 @@ window.addEventListener('DOMContentLoaded', () => {
                 
                 break;
                 
-            case 'kuzov':
-                 
-                let year_min = new Date().getFullYear();
-                let year_max = 1999;
-                let year = '<option value="">Год</option>';
+           case 'kuzov':
+    
+                let year_min = new Date().getFullYear(); // Текущий год
+                let year_max = 1999; // Начальный максимум
+                let year = '<option value="">Год</option>'; // Начальная опция
 
                 data.forEach(item => {
+                    let from = item.year_from.split('.')[0]; // Извлекаем первый год
+                    let to = item.year_to !== null ? item.year_to.split('.')[0] : null; // Извлекаем второй год
 
-                    let from = item.year_from.split('.')[0];
-                    let to = item.year_to !== null ? item.year_to.split('.')[0] : item.year_to;
-
+                    // Обработка минимального года
                     if (Number(from) <= year_min) { 
-                        if (from.length == 2) {
-                            // year_min = Number('20' + from);
-                        } else {
-                            year_min = Number(from);
-                        }
-                    }
-                    if (Number(to) == '') {
-                        year_max = new Date().getFullYear();
-                    }
-                    else if (item.year_to !== null && Number(to) >= year_max) { 
-                        if (to.length == 2) {
-                            // year_max = Number('20' + to);
-                        } else {
-                            year_max = Number(to);
-                        }
+                        year_min = (from.length == 2) ? Number('20' + from) : Number(from);
                     }
 
+                    // Обработка максимального года
+                    if (to === null) { // Проверяем на null
+                        year_max = new Date().getFullYear(); // Если year_to нет, берем текущий год
+                    } else if (Number(to) >= year_max) { 
+                        year_max = (to.length == 2) ? Number('20' + to) : Number(to);
+                    }
                 });
 
-                    for (let i = year_max; i >= year_min; i--) {
-                        year += '<option value="' + i + '">' + i + '</option>';
-                    }
+                // Генерация опций для селекта
+                for (let i = year_max; i >= year_min; i--) {
+                    year += '<option value="' + i + '">' + i + '</option>';
+                }
 
-                    console.log(year_min, year_max);
+                console.log(year_min, year_max); // Отладка
 
+                // Обновление селектов
+                jQuery('select[name="year"]').empty().append(year);
+                jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
+
+                break;
+                
+         case 'year':
+            let dvig_options = [];
+            let dvig = '<option value="">Номер двигателя</option>';
+            
+            // Получаем выбранный год из селекта (преобразуем в числовое значение)
+            let selectedYear = Number(this_select.val());
+
+            data.forEach(item => {
+                // Проверяем, укладывается ли год в диапазон и уникален ли двигатель
+                if (dvig_options.indexOf(item.engine) === -1 && 
+                    selectedYear >= Number(item.year_from) && 
+                    selectedYear <= Number(item.year_to)) {
                     
-                    jQuery('select[name="year"]').empty().append(year);
-                    jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
-                
-                break;
-                
-            case 'year':
-                    let dvig_options = [];
-                    let dvig = '<option value="">Номер двигателя</option>';
+                    dvig_options.push(item.engine); // Добавляем уникальный двигатель в массив
+                    dvig += '<option value="' + item.engine + '">' + item.engine + '</option>'; // Добавляем опцию
+                }
+            });
 
-                    data.forEach(item => {
-                        if (dvig_options.indexOf(item.engine) === -1 && item.year_from >= this_select.val() && item.year_to <= this_select.val()) {
-                            dvig_options.push(item.engine);
-                            dvig += '<option value="' + item.engine + '">' + item.engine + '</option>;'
-                        }
-                    });
+            jQuery('select[name="dvig"]').empty().append(dvig); // Обновление селекта
 
-                    jQuery('select[name="dvig"]').empty().append(dvig);
-                break;
+            break;
                 
         }
     })
