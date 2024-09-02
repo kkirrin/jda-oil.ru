@@ -151,11 +151,13 @@ get_header();
 								$product_volume = $product->get_attribute('pa_volume');
 								$product_id = $product->get_id();
 
-								echo '<a href="' . $product_link . '">';
 								echo '  <li class="flex md:flex-row flex-col gap-[20px] justify-between border-b border-dark-green pb-[15px]">';
-								echo '      <div class="p-[20px]">';
-								echo '          <img class="scale-200" src="' . $product_image . '" alt="">';
-								echo '      </div>';
+								echo '		<a href="' . $product_link . '">';
+								echo '      	<div class="p-[20px]">';
+								echo '          	<img class="scale-200" src="' . $product_image . '" alt="">';
+								echo '      	</div>';
+								echo '		</a>';
+
 								echo '      <div class="flex justify-between flex-col">';
 								echo '         <p class="text-dark-green md:text-[20px] text-[16px] font-semibold">' . $product_name . '</p>';
 								echo '         <div class="flex flex-col gap-[16px] md:pb-[20px] pb-[0px]">';
@@ -184,14 +186,26 @@ get_header();
 								echo '         </div>';
 								echo '      </div>';
 								echo '      <div>';
-								echo '         <p class="text-dark-green md:text-[20px] text-[20px] font-semibold">' . $product_price . '</p>';
+
+								if (is_user_logged_in()) {
+									echo '         <p class="text-dark-green md:text-[20px] text-[20px] font-semibold">' . $product_price . '</p>';
+								} else {
+									echo '<a href="#popup1" class="popup-link p-[10px] text-center" style="width: -webkit-fill-available;">Войти, чтобы увидеть цену</a>';
+								}
+
 								echo '      </div>';
 								echo '		<div class="flex gap-[10px] md:flex-col flex-row flex-wrap">';
-								echo '			<object class="bg-white text-dark-green w-[172px] p-[10px] text-center border border-dark-green bg-white text-dark-green btn-white"><a href="#popup6" class="popup-link w-[172px] p-[10px] text-center">В розницу</a></object>';
-								echo '			<button href="?add-to-cart=' . $product_id . '" data-quantity="1" class="product_type_simple add_to_cart_button ajax_add_to_cart h-max w-[172px] p-[10px] text-center bg-green text-white btn-green" data-product_id="' . $product_id . '" data-product_sku="' . $product_sku . '" aria-label="Добавить &quot;' . $product_name . '&quot; в корзину" rel="nofollow">Оптом</button>';
+
+								echo '			<object style="width: -webkit-fill-available;" class="bg-white text-dark-green w-[172px] p-[10px] text-center border border-dark-green bg-white text-dark-green btn-white"><a href="#popup6" class="popup-link w-[172px] p-[10px] text-center">В розницу</a></object>';
+
+								if (is_user_logged_in()) {
+									echo '              <a href="' . $product_link . '" style="width: -webkit-fill-available;" class="btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</a>';
+								} else {
+									echo '              <a href="#popup1" style="width: -webkit-fill-available;" class="popup-link btn-green p-[10px] text-white text-center bg-green bg-green--watch">Оптом</a>';
+								}
+
 								echo '      </div>';
 								echo '  </li>';
-								echo '</a>';
 							}
 						}
 						wp_reset_postdata(); // Reset the post data

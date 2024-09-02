@@ -179,7 +179,14 @@
                         echo '                      <li>' . $product_volume . '</li>';
                         echo '                 </ul>';
                         echo '              </div>';
-                        echo '              <p class="oil__list-item--price">' . $product_price . '</p>';
+
+                        if (is_user_logged_in()) {
+                            echo '              <p class="oil__list-item--price">' . $product_price . '</p>';
+                        } else {
+                            echo '<a href="#popup1" class="popup-link p-[10px] text-center" style="width: -webkit-fill-available;">Войти, чтобы увидеть цену</a>';
+                        }
+
+
                         echo '              <div class="oil__list-item--buttons">';
                         echo '                  <a href="#popup6" class="popup-link btn-white p-[10px] bg-white text-center" style="width: -webkit-fill-available;">В розницу</a>';
 

@@ -49,7 +49,7 @@ if ($product->is_in_stock()) : ?>
 		<?php if (is_user_logged_in()) {
 			echo ' <button type="submit" name="add-to-cart" value="' . esc_attr($product->get_id()) . '" class="single_add_to_cart_button button alt">' . esc_html($product->single_add_to_cart_text()) . '</button>';
 		} else {
-			echo '<a href="#popup1" class="popup-link underline">Нужно пройти регистрацию или ввойти в профиль</a>';
+			echo '<a href="#popup1" style="text-wrap: balance;" class="popup-link underline">Войти, чтобы увидеть цену</a>';
 		}
 		?>
 

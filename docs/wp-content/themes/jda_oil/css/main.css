@@ -3615,6 +3615,13 @@ table.table {
   width: max-content;
   align-items: center;
 }
+
+@media screen and (max-width: 480px) {
+  .entry-summary-wrapper.wpc--darkluplite-element {
+    width: 100%;
+  }
+}
+
 .cart.wpc--darkluplite-element.darkluplite--text-after.darkluplite--text-before {
   margin-bottom: 0 !important;
 }
@@ -3631,4 +3638,15 @@ table.table {
 
 .attachment-woocommerce_thumbnail.size-woocommerce_thumbnail.darkluplite--img {
   scale: 1.4;
+}
+
+.um-right.um-half.wpc--darkluplite-element a, .um-left.um-half.wpc--darkluplite-element input{
+  font-size: 12px;
+}
+.um-right.um-half.wpc--darkluplite-element a {
+  padding: 16px 0px !important;
+}
+
+.um-field-checkbox.wpc--darkluplite-element {
+  display: none !important;
 }

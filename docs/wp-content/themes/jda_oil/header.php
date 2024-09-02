@@ -118,38 +118,46 @@
                             <div class="flex">
                                 <!-- <a href="/?page_id=102"> -->
                                 <div class="md:block sm:block hidden">
-                                    <button href="<?php echo esc_url(wc_get_cart_url()); ?>" class="btn_cart relative flex items-center">
-                                        <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">
-                                            <g clip-path="url(#clip0_200_307)">
-                                                <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </g>
-                                            <defs>
-                                                <clipPath id="clip0_200_307">
-                                                    <rect width="20" height="20" fill="white" transform="translate(18 17)" />
-                                                </clipPath>
-                                            </defs>
-                                        </svg>
+                                    <?php if (is_user_logged_in()) {
 
-                                        <!-- <span id="count"><?php echo minicart_count_after_content(); ?>&nbsp;шт&nbsp;(<?php minicard_subtotal(); ?>)</span> -->
-                                        <span id="count"><?php echo minicart_count_after_content(); ?></span>
 
-                                        <div class="modal_cart" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
-                                            <div class="modal_list">
+                                        echo ' <a href="/?page_id=102" class="btn_cart relative flex items-center">';
+                                        echo '     <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray">';
+                                        echo '         <g clip-path="url(#clip0_200_307)">';
+                                        echo '             <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />';
+                                        echo '             <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />';
+                                        echo '             <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />';
+                                        echo '         </g>';
+                                        echo '         <defs>';
+                                        echo '             <clipPath id="clip0_200_307">';
+                                        echo '                 <rect width="20" height="20" fill="white" transform="translate(18 17)" />';
+                                        echo '             </clipPath>';
+                                        echo '         </defs>';
+                                        echo '     </svg>';
+                                        echo '     <span id="count">' . minicart_count_after_content() . '</span>';
+                                        echo ' </a>';
+                                    } else {
 
-                                                <?php
-                                                if (WC()->cart->get_cart_contents_count() > 0) {
-                                                    // the_widget('WC_Widget_Cart', array('title' => ''));
-                                                    woocommerce_mini_cart(array());
-                                                } else {
-                                                    echo '<p style="width: max-content;" class="empty-cart">Ваша корзина пуста</p>';
-                                                }
-                                                ?>
 
-                                            </div>
-                                        </div>
-                                    </button>
+                                        echo ' <a href="#popup1" class="btn_cart relative flex items-center popup-link"> ';
+                                        echo '     <svg width="55" height="60" viewBox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg" class=" border-l border-gray"> ';
+                                        echo '         <g clip-path="url(#clip0_200_307)"> ';
+                                        echo '             <path d="M25.4998 35.3334C25.9601 35.3334 26.3332 34.9603 26.3332 34.5C26.3332 34.0398 25.9601 33.6667 25.4998 33.6667C25.0396 33.6667 24.6665 34.0398 24.6665 34.5C24.6665 34.9603 25.0396 35.3334 25.4998 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> ';
+                                        echo '             <path d="M34.6668 35.3334C35.1271 35.3334 35.5002 34.9603 35.5002 34.5C35.5002 34.0398 35.1271 33.6667 34.6668 33.6667C34.2066 33.6667 33.8335 34.0398 33.8335 34.5C33.8335 34.9603 34.2066 35.3334 34.6668 35.3334Z" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> ';
+                                        echo '             <path d="M18.8335 17.8333H22.1668L24.4002 28.9916C24.4764 29.3753 24.6851 29.7199 24.9898 29.9652C25.2945 30.2105 25.6757 30.3408 26.0668 30.3333H34.1668C34.5579 30.3408 34.9392 30.2105 35.2439 29.9652C35.5486 29.7199 35.7573 29.3753 35.8335 28.9916L37.1668 22H23.0002" stroke="#247500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /> ';
+                                        echo '         </g> ';
+                                        echo '         <defs> ';
+                                        echo '             <clipPath id="clip0_200_307"> ';
+                                        echo '                 <rect width="20" height="20" fill="white" transform="translate(18 17)" /> ';
+                                        echo '             </clipPath> ';
+                                        echo '         </defs> ';
+                                        echo '     </svg> ';
+                                        echo '     <span id="count">' . minicart_count_after_content() . '</span> ';
+                                        echo ' </a> ';
+                                    }
+                                    ?>
+
+
                                 </div>
 
                                 <div class="md:hidden sm:hidden block">
@@ -191,9 +199,9 @@
                                             echo '<ul class="modal_list">';
                                             // echo '  <a href="/?page_id=81" class="text-black text-base hover:text-green transition-all">Личный кабинет</a>';
                                             echo '  <a href="/?page_id=104" class="text-black text-base hover:text-green transition-all">Мой аккаунт</a>';
-                                            echo '  <a href="/?page_id=99" class="text-black text-base hover:text-green transition-all">Корзина</a>';
+                                            echo '  <a href="/?page_id=102" class="text-black text-base hover:text-green transition-all">Корзина</a>';
                                             echo '  <a href="/?page_id=101" class="text-black text-base hover:text-green transition-all">Магазин</a>';
-                                            echo '  <a href="/?page_id=133" class="text-black text-base hover:text-green transition-all">Выйти</a>';
+                                            // echo '  <a href="/?page_id=133" class="text-black text-base hover:text-green transition-all">Выйти</a>';
                                             echo '</ul>';
                                         }
                                         ?>

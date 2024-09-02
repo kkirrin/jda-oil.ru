@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Loop Price
  *
@@ -15,13 +16,21 @@
  * @version     1.6.4
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
+if (! defined('ABSPATH')) {
 	exit; // Exit if accessed directly
 }
 
 global $product;
 ?>
 
-<?php if ( $price_html = $product->get_price_html() ) : ?>
-	<span class="price"><?php echo $price_html; ?></span>
+<?php if ($price_html = $product->get_price_html()) : ?>
+
+	
+
+	<?php if (is_user_logged_in()) {
+		echo ' <span class="price">' . $price_html . '</span>';
+	} else {
+		echo '<a href="#popup1" class="popup-link p-[10px] text-center" style="width: -webkit-fill-available;">Войти, чтобы увидеть цену</a>';
+	}
+	?>
 <?php endif; ?>
