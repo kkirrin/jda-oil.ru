@@ -90,6 +90,7 @@
                         </svg>
                     </button>
                     <h2 class="text-start text-dark-green z-10  md:text-4xl text-xl pb-7 font-bold">Выполните вход</h2>
+                    <p>Чтобы приобретать товары на данном сайте необходимо создать аккаунт</p>
 
                     <!-- <div class="form-wrapper"> -->
                     <!-- <label>Электронная почта</label>

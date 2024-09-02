@@ -182,10 +182,21 @@
                                         </defs>
                                     </svg>
                                     <div class="modal_lk" style="box-shadow: 0px 4px 17px 0px rgba(0, 0, 0, 0.1);">
-                                        <ul class="modal_list">
-                                            <a href="popup1" class="text-black text-base hover:text-green transition-all popup-link">Войти</a>
-                                            <a href="popup2" class="text-black text-base hover:text-green transition-all popup-link">Зарегистрироваться</a>
-                                        </ul>
+                                        <?php if (!is_user_logged_in()) {
+                                            echo '<ul class="modal_list">';
+                                            echo '  <a href="popup1" class="text-black text-base hover:text-green transition-all popup-link">Войти</a>';
+                                            echo '  <a href="popup2" class="text-black text-base hover:text-green transition-all popup-link">Зарегистрироваться</a>';
+                                            echo '</ul>';
+                                        } else {
+                                            echo '<ul class="modal_list">';
+                                            // echo '  <a href="/?page_id=81" class="text-black text-base hover:text-green transition-all">Личный кабинет</a>';
+                                            echo '  <a href="/?page_id=104" class="text-black text-base hover:text-green transition-all">Мой аккаунт</a>';
+                                            echo '  <a href="/?page_id=99" class="text-black text-base hover:text-green transition-all">Корзина</a>';
+                                            echo '  <a href="/?page_id=101" class="text-black text-base hover:text-green transition-all">Магазин</a>';
+                                            echo '  <a href="/?page_id=133" class="text-black text-base hover:text-green transition-all">Выйти</a>';
+                                            echo '</ul>';
+                                        }
+                                        ?>
                                     </div>
                                 </button>
 

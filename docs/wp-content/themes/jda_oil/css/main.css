@@ -207,7 +207,7 @@
   height: 20px;
   padding: 20px;
   color: var(--dark-green);
-  border: 1px solid var(--black);
+  border: 1px solid rgba(128, 128, 128, .16);
 }
 
 .popup__text {
@@ -656,7 +656,7 @@
 
 .news-list--item {
   width: -webkit-fill-available;
-  border: 1px solid var(--dark-green);
+  border: 1px solid rgba(128, 128, 128, .16);
   padding: 20px;
 }
 
@@ -729,6 +729,7 @@ th, td {
 }
 
 .modal_lk, .modal_cart {
+  width: max-content;
   background-color: var(--white);
   position: absolute;
   padding: 16px;
@@ -2808,7 +2809,7 @@ svg:hover {
   display: flex !important;
   justify-content: space-between;
   gap: 40px !important;
-  border: 1px solid var(--dark-green) !important;
+  border: 1px solid rgba(128, 128, 128, .16);
   padding: 40px !important;
 }
 
@@ -2930,12 +2931,12 @@ table .wc-proceed-to-checkout.wpc--darkluplite-element.darkluplite--text-after.d
 
 .new-card-wrapper .woocommerce-cart-form__cart-item.cart_item.wpc--darkluplite-element, .woocommerce-cart-form__cart-item.cart_item.wpc--darkluplite--observed {
   border: none !important;
-  border-bottom: 1px solid var(--dark-green) !important;
+  border-bottom: 1px solid rgba(128, 128, 128, .16) !important;
 }
 
 .new-card-wrapper .product-thumbnail.wpc--darkluplite-element {
   padding: 10px;
-  border: 1px solid var(--dark-green);
+  border: 1px solid rgba(128, 128, 128, .16) !important;
   max-width: 70px;
   max-height: 93px;
 }
@@ -3013,7 +3014,7 @@ table .wc-proceed-to-checkout.wpc--darkluplite-element.darkluplite--text-after.d
 
 .popup__body .input-text.darkluplite--input {
   padding: 12px 20px;
-  border: 1px solid var(--black);
+  border: 1px solid rgba(128, 128, 128, .16);
   color: rgba(0, 0, 0, 0.4);
 }  
 
@@ -3318,11 +3319,11 @@ h1.wpc--darkluplite-element.darkluplite--text {
 }
 
 .um-field-area.wpc--darkluplite-element .um-form-field.valid.darkluplite--input {
-  border: 1px solid rgb(13, 43, 0) !important;
+  border: 1px solid rgba(128, 128, 128, .16);
 }
 
 .um-form-field.valid.darkluplite--input {
-  border: 1px solid rgb(13, 43, 0) !important;
+  border: 1px solid rgba(128, 128, 128, .16);
 }
 
 .um-form-field.valid.darkluplite--input::placeholder {
@@ -3352,7 +3353,7 @@ form.text-green.wpc--darkluplite-element label, form.text-green.wpc--darkluplite
 
 .btn-green {
   background: var(--green);
-  border-color: var(--green);
+  border: 1px solid rgba(128, 128, 128, .16);
   color: var(--white);
   transition: all 0.5s;
   max-height: 50px !important;
@@ -3360,7 +3361,7 @@ form.text-green.wpc--darkluplite-element label, form.text-green.wpc--darkluplite
 
 .btn-white {
   background: var(--white);
-  border-color: var(--green);
+  border: 1px solid rgba(128, 128, 128, .16);
   color: var(--green);
   transition: all 0.5s;
   max-height: 50px !important;
@@ -3390,7 +3391,7 @@ form.text-green.wpc--darkluplite-element label, form.text-green.wpc--darkluplite
 .btn-green:hover {
   box-shadow: inset 0 1.5em 0 0 var(--white), inset 0 -1.5em 0 0 var(--white);
   background: var(--white); 
-  border: .1px solid var(--green);
+  border: 1px solid rgba(128, 128, 128, .16);
   color: var(--dark-green) !important;
 }
 
@@ -3432,7 +3433,7 @@ form.text-green.wpc--darkluplite-element label, form.text-green.wpc--darkluplite
 
 #socials_icons svg:hover path{
   fill: var(--white) !important;
-  border: 1px solid var(--dark-green) !important;
+  border: 1px solid rgba(128, 128, 128, .16);
 }
 
 #socials_icons svg:hover {
@@ -3591,7 +3592,7 @@ table.table {
 .woocommerce-input-wrapper.wpc--darkluplite-element input{
   padding: 15px;
   /* border-radius: 10px; */
-  border: 1px solid var(--black);
+  border: 1px solid rgba(128, 128, 128, .16);
 }
 
 
