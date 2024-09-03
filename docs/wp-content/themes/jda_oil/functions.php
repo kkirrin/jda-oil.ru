@@ -247,6 +247,8 @@ function getData()
             'liter',
             'engine',
             'recommend_oil',
+            'api',
+            'sae',
             'transmission_type',
             'lubricant_capacity',
             'filter_capacity',
@@ -298,7 +300,6 @@ function getData()
             }
         }
 
-        // echo '<pre>'; var_dump($data[0]); echo '</pre>';
 
         // Логирование успешной обработки данных
         file_put_contents($path_to_log, '[' . date('Y-m-d H:i:s') . '] Success : Parser is success' . PHP_EOL, FILE_APPEND);

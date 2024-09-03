@@ -63,6 +63,133 @@ window.addEventListener('DOMContentLoaded', () => {
 
             data = JSON.parse(response);
             console.log(data);
+
+            const value_marka = jQuery('#value_marka').text();
+            const value_model = jQuery('#value_model').text();
+            const value_kuzov = jQuery('#value_kuzov').text();
+            const value_year = jQuery('#value_year').text();
+            const value_dvig= jQuery('#value_dvig').text();
+
+            let filter_data = data.filter(function (item) {
+                
+                if (value_marka !== '-') {
+                    if (item.maker !== value_marka) {
+                        return false;
+                    } 
+                }
+
+                return true;
+                
+            });
+
+            filter_data = filter_data.filter(function (item) {
+                
+                if (value_model != '-') {
+                    if (item.car_name !== value_model) {
+                        return false;
+                    } 
+                }
+                return true;
+
+                
+            });
+
+            filter_data = filter_data.filter(function (item) {
+                
+                if (value_kuzov !== '-') {
+                    if (item.grade !== value_kuzov) {
+                        return false;
+                    }
+                }
+
+                return true;
+
+                
+            });
+
+            filter_data = filter_data.filter(function (item) {
+                
+                if (value_year !== '-') {
+                    if (value_year < item.year_from || value_year > item.year_to) {
+                        return false;
+                    }
+                }
+
+                return true;
+
+                
+            });
+
+             filter_data = filter_data.filter(function (item) {
+                
+                if (value_dvig !== '-') {
+                    if (item.engine !== value_dvig) {
+                        return false;
+                    } 
+                 }
+
+                return true;
+
+                
+            });
+
+            console.log(filter_data);
+            jQuery('#motor_value_2').text(filter_data[0].sae);
+            jQuery('#motor_value_3').text(filter_data[0].filter_capacity);
+
+            jQuery('#oil_value_1').text(filter_data[0].capacity);
+            jQuery('#oil_value_2').text(filter_data[0].recommend_oil);
+
+            jQuery('#liquid_value_1').text(filter_data[0].capacity);
+            jQuery('#liquid_value_2').text(filter_data[0].recommend_oil);
+
+            // filter_data = filter_data.filter(function (item) {
+            //     <?php if (isset($_POST['model'])) { ?>
+            //        if (item.model === "<?php echo isset($_POST['model']); ?>") { 
+            //            return true;
+            //          } else {
+            //            return false;
+            //          }
+                    
+            //     <?php } ?>
+            // });
+
+            // filter_data = filter_data.filter(function (item) {
+            //     <?php if (isset($_POST['kuzov'])) { ?>
+            //        if (item.grade === "<?php echo isset($_POST['kuzov']); ?>") { 
+            //            return true;
+            //          } else {
+            //            return false;
+            //          }
+                    
+            //     <?php } ?>
+            // });
+            
+            // filter_data = filter_data.filter(function (item) {
+            //     <?php if (isset($_POST['year'])) { ?>
+            //        if ("<?php echo isset($_POST['year']); ?>" >= item.year_from && "<?php echo isset($_POST['year']); ?>" <= item.year_to) { 
+            //            return true;
+            //          } else {
+            //            return false;
+            //          }
+                    
+            //     <?php } ?>
+            // });
+            
+            // filter_data = filter_data.filter(function (item) {
+            //     <?php if (isset($_POST['year'])) { ?>
+            //        if ("<?php echo isset($_POST['year']); ?>" >= item.year_from && "<?php echo isset($_POST['year']); ?>" <= item.year_to) { 
+            //            return true;
+            //          } else {
+            //            return false;
+            //          }
+                    
+            //     <?php } ?>
+            // });
+
+            
+            
+
             let marka_options = [];
             // jQuery('select[name="marka"], select[name="model"], select[name="kuzov"], select[name="year"] ,select[name="dvig"]')
             // let kuzov_options = [];
@@ -169,9 +296,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 for (let i = year_max; i >= year_min; i--) {
                     year += '<option value="' + i + '">' + i + '</option>';
                 }
-
-                console.log(year_min, year_max); // Отладка
-
                 // Обновление селектов
                 jQuery('select[name="year"]').empty().append(year);
                 jQuery('select[name="dvig"]').empty().append('<option value="">Номер двигателя</option>');
@@ -187,6 +311,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             data.forEach(item => {
                 // Проверяем, укладывается ли год в диапазон и уникален ли двигатель
+                console.log(Number(item.year_from) )
                 if (dvig_options.indexOf(item.engine) === -1 && 
                     selectedYear >= Number(item.year_from) && 
                     selectedYear <= Number(item.year_to)) {
@@ -220,10 +345,16 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const filter_data = get_filtered_data(data, filter_options);
         
+        // filter_data.forEach(function(item) {
+        //     if(oils.indexOf(item['recommend_oil']) === -1) {
+        //         oils.push(item['recommend_oil']);
+        //         this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
+        //     }
+        // });                
         filter_data.forEach(function(item) {
-            if(oils.indexOf(item['recommend_oil']) === -1) {
-                oils.push(item['recommend_oil']);
-                this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
+            if(oils.indexOf(item['sae']) === -1) {
+                oils.push(item['sae']);
+                this_form.append('<input type="hidden" name="sae[]" value="'+ String(item['sae']) +'">');
             }
         });                
         this_form.submit();

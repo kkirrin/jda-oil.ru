@@ -96,11 +96,11 @@
                         </td>
                         <td>
                             <ul>
-                                <li><?php echo isset($_POST['marka']) ? $_POST['marka'] : '-'; ?></li>
-                                <li><?php echo isset($_POST['model']) ? $_POST['model'] : '-'; ?></li>
-                                <li><?php echo isset($_POST['kuzov']) ? $_POST['kuzov'] : '_'; ?></li>
-                                <li><?php echo isset($_POST['year']) && $_POST['year']  ? $_POST['year']  : '-'; ?></li>
-                                <li><?php echo isset($_POST['dvig']) ? $_POST['dvig'] : '-'; ?></li>
+                                <li id="value_marka"><?php echo isset($_POST['marka']) && $_POST['marka'] != '' ? $_POST['marka'] : '-'; ?></li>
+                                <li id="value_model"><?php echo isset($_POST['model']) && $_POST['model'] != '' ? $_POST['model'] : '-'; ?></li>
+                                <li id="value_kuzov"><?php echo isset($_POST['kuzov']) && $_POST['kuzov'] != '' ? $_POST['kuzov'] : '-'; ?></li>
+                                <li id="value_year"><?php echo isset($_POST['year']) && $_POST['year'] != '' ? $_POST['year']  : '-'; ?></li>
+                                <li id="value_dvig"><?php echo isset($_POST['dvig']) && $_POST['dvig'] != '' ? $_POST['dvig'] : '-'; ?></li>
                             </ul>
                         </td>
                     </tr>
@@ -108,16 +108,16 @@
                         <td>Моторное масло</td>
                         <td>
                             <ul>
-                                <li>Классификация по API </li>
+                                <!-- <li>Классификация по API </li> -->
                                 <li>Классификация по SAE </li>
                                 <li>Объем с фильтром</li>
                             </ul>
                         </td>
                         <td>
                             <ul>
-                                <li>-</li>
-                                <li>-</li>
-                                <li>-</li>
+                                <!-- <li id="motor_value_1">-</li> -->
+                                <li id="motor_value_2">-</li>
+                                <li id="motor_value_3">-</li>
                             </ul>
                         </td>
                     </tr>
@@ -131,8 +131,8 @@
                         </td>
                         <td>
                             <ul>
-                                <li>-</li>
-                                <li>-</li>
+                                <li id="oil_value_1">-</li>
+                                <li id="oil_value_2">-</li>
                             </ul>
                         </td>
                     </tr>
@@ -140,22 +140,22 @@
                         <td>Жидкость для АКП, для вариаторов, для АКП с встроенными дифференциалом </td>
                         <td>
                             <ul>
-                                <li>Объем </li>
-                                <li>Idemitsu USA</li>
-                                <li>Универсальная жидкость Idemitsu</li>
-                                <li>Универсальная жидкость Autobacs</li>
+                                <li id="">Объем </li>
+                                <li id="">Требуемое масло</li>
+                                <!-- <li>Универсальная жидкость Idemitsu</li>
+                                <li>Универсальная жидкость Autobacs</li> -->
                             </ul>
                         </td>
                         <td>
                             <ul>
-                                <li>-</li>
-                                <li>-</li>
-                                <li>-</li>
-                                <li>-</li>
+                                <li id="liquid_value_1">-</li>
+                                <li id="liquid_value_2">-</li>
+                                <!-- <li>-</li>
+                                <li>-</li> -->
                             </ul>
                         </td>
                     </tr>
-                    <tr class="data-row">
+                    <!-- <tr class="data-row">
                         <td>Жидкость и масло для раздаточной коробки </td>
                         <td>
                             <ul>
@@ -200,7 +200,7 @@
                                 <li>-</li>
                             </ul>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
 
@@ -212,8 +212,8 @@
             <h2 class="md:text-[45px] text-[30px] text-dark-green"> Рекомендованная продукция</h2>
             <ul class="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 pt-[30px]">
                 <?php
-                if (isset($_POST['recommend_oil']) && !empty($_POST['recommend_oil'])) {
-                    $viscosities = $_POST['recommend_oil'];
+                if (isset($_POST['sae']) && !empty($_POST['sae'])) {
+                    $viscosities = $_POST['sae'];
 
                     $products = wc_get_products(array(
                         'limit' => -1,
