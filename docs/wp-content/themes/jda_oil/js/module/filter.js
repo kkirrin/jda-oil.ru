@@ -314,30 +314,42 @@ window.addEventListener('DOMContentLoaded', () => {
                 break;
                 
          case 'year':
+            // Массив для хранения уникальных двигателей
             let dvig_options = [];
             let dvig = '<option value="">Номер двигателя</option>';
-            
-            // Получаем выбранный год из селекта (преобразуем в числовое значение)
+
+            // Получаем выбранный год из селекта и преобразуем в числовое значение
             let selectedYear = Number(this_select.val());
 
+            // Перебираем все элементы массива data
             data.forEach(item => {
-                // Проверяем, укладывается ли год в диапазон и уникален ли двигатель
-                console.log(Number(item.year_from) )
-                if (dvig_options.indexOf(item.engine) === -1 && 
-                    selectedYear >= Number(item.year_from) && 
-                    selectedYear <= Number(item.year_to)) {
-                    
-                    dvig_options.push(item.engine); // Добавляем уникальный двигатель в массив
-                    dvig += '<option value="' + item.engine + '">' + item.engine + '</option>'; // Добавляем опцию
+                // Проверяем предыдущие выборы: marka, model, kuzov
+                const selectedMarka = jQuery('select[name="marka"]').val();
+                const selectedModel = jQuery('select[name="model"]').val();
+                const selectedKuzov = jQuery('select[name="kuzov"]').val();
+
+                // Проверяем соответствие всем выбранным значениям
+                if (
+                    (selectedMarka === '' || item.maker === selectedMarka) &&
+                    (selectedModel === '' || item.car_name === selectedModel) &&
+                    (selectedKuzov === '' || item.grade === selectedKuzov) &&
+                    selectedYear >= Number(item.year_from) &&
+                    selectedYear <= Number(item.year_to)
+                ) {
+                    // Если двигатель уникален
+                    if (dvig_options.indexOf(item.engine) === -1) {
+                        dvig_options.push(item.engine); // Добавляем уникальный двигатель в массив
+
+                        dvig += '<option value="' + item.engine + '">' + item.engine + '</option>'; // Добавляем опцию
+                    }
                 }
             });
 
-            jQuery('select[name="dvig"]').empty().append(dvig); // Обновление селекта
-
-            break;
-                
+                // Обновление селекта с уникальными значениями двигателей
+                jQuery('select[name="dvig"]').empty().append(dvig);
+                break;
         }
-    })
+    });
 
     jQuery('button[name="oil_search"]').on('click', function(e) {
         e.preventDefault();
