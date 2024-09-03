@@ -231,7 +231,7 @@
                     <div class="md:text-sm text-xs text-dark-green">
                         ©2024 ООО «СД БИЗНЕС ГРУПП». Все права защищены
                     </div>
-                    <a href="" class="md:text-sm text-xs underline text-dark-green">
+                    <a href="/?page_id=433" class="md:text-sm text-xs underline text-dark-green">
                         Политика конфиденциальности
                     </a>
                 </div>

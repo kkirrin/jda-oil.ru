@@ -108,20 +108,20 @@
                         <td>Моторное масло</td>
                         <td>
                             <ul>
-                                <!-- <li>Классификация по API </li> -->
+                                <li>Классификация по API </li>
                                 <li>Классификация по SAE </li>
                                 <li>Объем с фильтром</li>
                             </ul>
                         </td>
                         <td>
                             <ul>
-                                <!-- <li id="motor_value_1">-</li> -->
+                                <li id="motor_value_1">-</li>
                                 <li id="motor_value_2">-</li>
                                 <li id="motor_value_3">-</li>
                             </ul>
                         </td>
                     </tr>
-                    <tr class="data-row">
+                    <!-- <tr class="data-row">
                         <td>Масло для МПК</td>
                         <td>
                             <ul>
@@ -135,9 +135,9 @@
                                 <li id="oil_value_2">-</li>
                             </ul>
                         </td>
-                    </tr>
+                    </tr> -->
                     <tr class="data-row">
-                        <td>Жидкость для АКП, для вариаторов, для АКП с встроенными дифференциалом </td>
+                        <td>Жидкость для АКП, для вариаторов, для АКП со встроенным дифференциалом </td>
                         <td>
                             <ul>
                                 <li id="">Объем </li>

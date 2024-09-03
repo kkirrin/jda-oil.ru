@@ -134,14 +134,25 @@ window.addEventListener('DOMContentLoaded', () => {
             });
 
             console.log(filter_data);
-            jQuery('#motor_value_2').text(filter_data[0].sae);
-            jQuery('#motor_value_3').text(filter_data[0].filter_capacity);
+            
 
-            jQuery('#oil_value_1').text(filter_data[0].capacity);
-            jQuery('#oil_value_2').text(filter_data[0].recommend_oil);
+            if (jQuery('#motor_value_1').length !== 0) {
+                    jQuery('#motor_value_1').text(filter_data[0].api);
+                    jQuery('#motor_value_2').text(filter_data[0].sae);
+                    jQuery('#motor_value_3').text(filter_data[0].filter_capacity);
 
-            jQuery('#liquid_value_1').text(filter_data[0].capacity);
-            jQuery('#liquid_value_2').text(filter_data[0].recommend_oil);
+                
+                    jQuery('#liquid_value_1').text(filter_data[0].capacity);
+                    jQuery('#liquid_value_2').text(filter_data[0].fluid);
+            }
+
+
+
+
+
+
+            // jQuery('#oil_value_1').text(filter_data[0].capacity);
+            // jQuery('#oil_value_2').text(filter_data[0].recommend_oil);
 
             // filter_data = filter_data.filter(function (item) {
             //     <?php if (isset($_POST['model'])) { ?>
@@ -343,7 +354,7 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         })
 
-        const filter_data = get_filtered_data(data, filter_options);
+        const main_data = get_filtered_data(data, filter_options);
         
         // filter_data.forEach(function(item) {
         //     if(oils.indexOf(item['recommend_oil']) === -1) {
@@ -351,7 +362,7 @@ window.addEventListener('DOMContentLoaded', () => {
         //         this_form.append('<input type="hidden" name="recommend_oil[]" value="'+ String(item['recommend_oil']) +'">');
         //     }
         // });                
-        filter_data.forEach(function(item) {
+        main_data.forEach(function(item) {
             if(oils.indexOf(item['sae']) === -1) {
                 oils.push(item['sae']);
                 this_form.append('<input type="hidden" name="sae[]" value="'+ String(item['sae']) +'">');

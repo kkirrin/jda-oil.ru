@@ -35,7 +35,7 @@
                     </a>
 
                     <div style="width: -webkit-fill-available;" class="flex gap-[30px] items-center md:justify-right sm:justify-between justify-end">
-                        <div class="text-dark-green md:block sm:block hidden">ПН — СБ с 10:00 до 18:00</div>
+                        <div class="text-dark-green md:block sm:block hidden">ПН — СБ с 10:00 до 17:00</div>
 
                         <div class="text-dark-green md:block sm:block hidden">
                             <a href="tel:+<?php echo get_field('phone_header-bot', "option"); ?>" class="list-disc"><?php echo get_field('phone_header', 'option'); ?></a>
