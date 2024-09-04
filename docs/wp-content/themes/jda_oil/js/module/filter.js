@@ -108,7 +108,13 @@ window.addEventListener('DOMContentLoaded', () => {
             });
 
             filter_data = filter_data.filter(function (item) {
+
+
+                  if (item.year_to === '' || item.year_to === null) {
+                          item.year_to = String(new Date().getFullYear()); 
+                }
                 
+
                 if (value_year !== '-') {
                     if (value_year < item.year_from || value_year > item.year_to) {
                         return false;
@@ -133,11 +139,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 
             });
 
-            console.log(filter_data);
+            console.log((jQuery('#motor_value_1')));
+            console.log(filter_data.length)
             
-
             // console.log(jQuery('#motor_value_1').text(filter_data[0].api))
-            if (jQuery('#motor_value_1').length !== 0 || jQuery('#motor_value_1').val() !== undefined) {
+            if ((jQuery('#motor_value_1').length !== 0 || jQuery('#motor_value_1').text() !== '-') && filter_data.length !== 0) {
                     jQuery('#motor_value_1').text(filter_data[0].api);
                     jQuery('#motor_value_2').text(filter_data[0].sae);
                     jQuery('#motor_value_3').text(filter_data[0].filter_capacity);
@@ -145,13 +151,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 
                     jQuery('#liquid_value_1').text(filter_data[0].capacity);
                     jQuery('#liquid_value_2').text(filter_data[0].fluid);
-            } else {
-                 jQuery('#motor_value_1').text('Ошибка, перезагрузите страницу');
-            }
-
-
-
-
+            } 
 
 
             // jQuery('#oil_value_1').text(filter_data[0].capacity);
@@ -297,12 +297,13 @@ window.addEventListener('DOMContentLoaded', () => {
                         let to = item.year_to !== null ? item.year_to.split('.')[0] : null; // Извлекаем второй год
 
                         // Обработка минимального года
-                        if (Number(from) <= year_min) { 
+                        if (Number(from) <= year_min) {
                             year_min = (from.length == 2) ? Number('20' + from) : Number(from);
                         }
 
                         // Обработка максимального года
-                        if (to === null) { // Проверяем на null
+                        console.log(to)
+                        if (to === null || to === '') { 
                             year_max = new Date().getFullYear(); // Если year_to нет, берем текущий год
                         } else if (Number(to) >= year_max) { 
                             year_max = (to.length == 2) ? Number('20' + to) : Number(to);
@@ -334,6 +335,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 // Перебираем все элементы массива data
                 data.forEach(item => {
                     // Проверяем предыдущие выборы: marka, model, kuzov
+
+                    if (item.year_to === '' || item.year_to === null) {
+                          item.year_to = String(new Date().getFullYear()); // Если year_to нет, берем текущий год
+                    }
+
                     const selectedMarka = jQuery('select[name="marka"]').val();
                     const selectedModel = jQuery('select[name="model"]').val();
                     const selectedKuzov = jQuery('select[name="kuzov"]').val();
