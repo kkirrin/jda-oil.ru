@@ -116,7 +116,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 
 
                 if (value_year !== '-') {
-                    if (value_year < item.year_from || value_year > item.year_to) {
+                    if (value_year < Math.floor(item.year_from) || value_year > Math.floor(item.year_to)) {
+                        console.log(Math.floor(item.year_from))
                         return false;
                     }
                 }
@@ -137,9 +138,8 @@ window.addEventListener('DOMContentLoaded', () => {
                 return true;
 
                 
-            });
-
-            console.log((jQuery('#motor_value_1')));
+             });
+            
             console.log(filter_data.length)
             
             // console.log(jQuery('#motor_value_1').text(filter_data[0].api))
@@ -151,6 +151,20 @@ window.addEventListener('DOMContentLoaded', () => {
                 
                     jQuery('#liquid_value_1').text(filter_data[0].capacity);
                     jQuery('#liquid_value_2').text(filter_data[0].fluid);
+                
+
+                    let marka_name_last = filter_data[0].maker
+                    let model_name_last = filter_data[0].car_name
+                    let kuzov_name_last = filter_data[0].grade
+                    let year_from_last = filter_data[0].year_from
+                    let engine_name_last = filter_data[0].engine
+
+                    // jQuery('select[name="marka"]').empty().append('<option value="'+ marka_name_last +'">'+ marka_name_last +'</option>');
+                    // jQuery('select[name="model"]').empty().append('<option value="'+ model_name_last +'">'+ model_name_last +'</option>');
+                    // jQuery('select[name="kuzov"]').empty().append('<option value="'+ kuzov_name_last +'">'+ kuzov_name_last +'</option>');
+                    // jQuery('select[name="year"]').empty().append('<option value="'+ Math.floor(year_from_last) +'">'+ Math.floor(year_from_last) +'</option>');
+                    // jQuery('select[name="dvig"]').empty().append('<option value="'+ engine_name_last +'">'+ engine_name_last +'</option>');
+                    
             } 
 
 
