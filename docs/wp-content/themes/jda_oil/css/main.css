@@ -2724,6 +2724,7 @@ svg:hover {
   flex-direction: column;
   gap: 20px;
   padding-bottom: 20px;
+  max-width: 400px;
 }
 
 .single-product__list li {
@@ -3649,4 +3650,15 @@ table.table {
 
 .um-field-checkbox.wpc--darkluplite-element {
   display: none !important;
+}
+
+.product_cart_desc {
+  max-width: 600px;
+}
+
+
+@media screen and (max-width: 480px) {
+  .product_cart_desc {
+    max-width: auto !important;
+  }
 }

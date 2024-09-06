@@ -37,9 +37,6 @@ $product_desc = $product->get_description();
 
 
 
-
-
-
 // echo '<pre>';
 // print_r($array);
 // echo '</pre>';
@@ -130,7 +127,7 @@ if (post_password_required()) {
 				</div>
 			</div>
 
-			<div style="max-width: 400px;">
+			<div class="product_cart_desc">
 				<?php echo $product_desc; ?>
 			</div>
 		</div>
