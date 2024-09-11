@@ -3791,7 +3791,7 @@ table.table {
     position: inherit !important;
     gap: 40px;
     border-radius: 5px;
-    width: max-content;
+    width: auto;
     /*background-color: #E9E9E9;*/
   }
   .live_search label > input[type="text"] {

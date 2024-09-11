@@ -15,7 +15,7 @@ get_header();
 		<section class="inner-page-main mt-40">
 
 			<div class="flex mb-5">
-				<h1 class="text-xl lg:text-6xl text-jost font-extrabold line uppercase relative">
+				<h1 class="text-xl lg:text-6xl text-jost font-extrabold line uppercase relative" style="line-height: 2rem;">
 					Результаты поиска для:
 					<?php echo get_search_query(); ?>
 				</h1>

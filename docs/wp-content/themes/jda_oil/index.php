@@ -14,7 +14,7 @@
     <section class="main-swiper overflow-hidden container__special" style="padding-top: 20px;" data-scroll>
         <div class="main-wrapper overflow-hidden">
             <div class="main-item relative">
-                <div class="swiper-pagination"></div>
+                <!-- <div class="swiper-pagination"></div> -->
 
                 <div class="swiper-wrapper tech-class">
                     <?php
@@ -55,7 +55,6 @@
 
 
                 </div>
-
                 <div class="swiper-wrapper tech-class-s">
                     <?php
                     $my_posts = get_posts(array(
@@ -68,26 +67,23 @@
                     if (!empty($my_posts)) {
                         foreach ($my_posts as $post) :
                             $photos_s = get_field('photo_banner_s');
-                            $banner_name = get_field('name_banner');
 
+                            // Форматируем только один слайд для каждого изображения
                             if (!empty($photos_s)) {
+                                // Добавляем только один слайд для каждого изображения
                                 foreach ($photos_s as $key => $photo) {
-                                    foreach ($banner_name as $name)
-                                        echo '
-                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url(' . $photo["url"] . '); background-repeat: no-repeat; ackground-size: center; background-size: cover; ">
-                                                    <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
-                                                        <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
-                                                            ' . $name["name_banner"] . '
-                                                        </h2>
-                                                    </div>
-                                                </div>';
+                                    echo '
+                        <div class="swiper-slide relative bg-black -z-10" style="background-image: url(' . $photo["url"] . '); background-repeat: no-repeat; background-size: cover;">
+                            <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
+                                <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
+                                </h2>
+                            </div>
+                        </div>';
                                 }
                             }
                         endforeach;
-                    };
+                    }
                     ?>
-
-
                 </div>
 
                 <div class="swiper-button-prev"></div>
