@@ -82,8 +82,29 @@
         }
         return $actions;
     }
+    
+    function woocommerce_pagination() {
+	if ( ! wc_get_loop_prop( 'is_paginated' ) || ! woocommerce_products_will_display() ) {
+		return;
+	}
+
+	$args = array(
+		'total'   => wc_get_loop_prop( 'total_pages' ),
+		'current' => wc_get_loop_prop( 'current_page' ),
+		'base'    => esc_url_raw( add_query_arg( 'product-page', '%#%', false ) ),
+		'format'  => '?product-page=%#%',
+	);
+
+	if ( ! wc_get_loop_prop( 'is_shortcode' ) ) {
+		$args['format'] = '';
+		$args['base']   = esc_url_raw( str_replace( 999999999, '%#%', remove_query_arg( 'add-to-cart', get_pagenum_link( 999999999, false ) ) ) );
+	}
+
+	wc_get_template( 'loop/pagination.php', $args );
+}
 
     add_filter('woocommerce_my_account_my_orders_actions', 'true_order_again', 25, 2);
-
+    
+    add_action( 'woocommerce_before_shop_loop', 'woocommerce_pagination', 10 ); 
 
 ?>

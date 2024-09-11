@@ -6,7 +6,7 @@
                     </a>
                     <div>
                         <ul class="flex flex-col">
-                            <li class="text-dark-green text-[16px]">Пн — СБ с 10:00 до 18:00</li>
+                            <li class="text-dark-green text-[16px]"><?php echo get_field('work_time', 'option'); ?></li>
                             <li><a href="tel:+<?php echo get_field('phone_header-bot', 'option'); ?>" class="text-dark-green text-[16px]"><?php echo get_field('phone_header', 'option'); ?></a></li>
                         </ul>
                     </div>

@@ -16,7 +16,7 @@
             <div class="main-item relative">
                 <div class="swiper-pagination"></div>
 
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper tech-class">
                     <?php
                     $my_posts = get_posts(array(
                         'numberposts' => 25,
@@ -27,14 +27,54 @@
 
                     if (!empty($my_posts)) {
                         foreach ($my_posts as $post) :
+                            // Получаем фотографии и названия баннеров
                             $photos = get_field('photo_banner');
+
+
+                            // Проверяем, что оба массива не пустые и имеют одинаковое количество элементов
+                            if (!empty($photos)) {
+                                // Перебираем массив фотографий
+                                foreach ($photos as $key => $photo) {
+                                    // Получаем соответствующее название баннера
+
+
+                                    // Отображаем слайд
+                                    echo '
+                    <div class="swiper-slide relative bg-black -z-10" style="background-image: url(' . esc_url($photo["url"]) . '); background-repeat: no-repeat; background-size: center; background-size: cover;">
+                        <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
+                            <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
+                            </h2>
+                        </div>
+                    </div>';
+                                }
+                            }
+                        endforeach;
+                    }
+                    ?>
+
+
+
+                </div>
+
+                <div class="swiper-wrapper tech-class-s">
+                    <?php
+                    $my_posts = get_posts(array(
+                        'numberposts' => 25,
+                        'order' => 'title',
+                        'orderby' => 'rand',
+                        'post_type' => 'slide',
+                    ));
+
+                    if (!empty($my_posts)) {
+                        foreach ($my_posts as $post) :
+                            $photos_s = get_field('photo_banner_s');
                             $banner_name = get_field('name_banner');
 
-                            if (!empty($photos)) {
-                                foreach ($photos as $key => $photo) {
+                            if (!empty($photos_s)) {
+                                foreach ($photos_s as $key => $photo) {
                                     foreach ($banner_name as $name)
                                         echo '
-                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url(' . $photo["url"] . '); background-repeat: no-repeat;">
+                                                <div class="swiper-slide relative bg-black -z-10 " style="background-image: url(' . $photo["url"] . '); background-repeat: no-repeat; ackground-size: center; background-size: cover; ">
                                                     <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
                                                         <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
                                                             ' . $name["name_banner"] . '
@@ -49,6 +89,7 @@
 
 
                 </div>
+
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
             </div>
@@ -121,7 +162,7 @@
                     <h3>Моторное масло</h3>
                 </div>
                 <div>
-                    <a href="/?page_id=52" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
+                    <a href="/?page_id=101" class="border border-dark-green p-[10px] flex items-center gap-[16px] btn-white btn-white--watch">
                         <span class="text-dark-green">Смотреть все</span>
                         <svg width="38" height="13" viewBox="0 0 38 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M37.0303 7.03033C37.3232 6.73744 37.3232 6.26256 37.0303 5.96967L32.2574 1.1967C31.9645 0.903806 31.4896 0.903806 31.1967 1.1967C30.9038 1.48959 30.9038 1.96447 31.1967 2.25736L35.4393 6.5L31.1967 10.7426C30.9038 11.0355 30.9038 11.5104 31.1967 11.8033C31.4896 12.0962 31.9645 12.0962 32.2574 11.8033L37.0303 7.03033ZM0.5 7.25H36.5V5.75H0.5V7.25Z" fill="#0D2B00" />

@@ -46,12 +46,13 @@ get_header();
 				</div>
 
 				<div class="flex md:flex-row flex-col gap-[20px]">
-					<div>
+					<!-- <div>
+			
 						<?php echo do_shortcode('[wpf-filters id=2]') ?>
 					</div>
 					<div>
 						<?php echo do_shortcode('[wpf-filters id=3]'); ?>
-					</div>
+					</div> -->
 				</div>
 			</div>
 
@@ -128,8 +129,9 @@ get_header();
 						$args = array(
 							'post_type' => 'product',
 							'orderby' => 'menu_order',
+							'posts_per_page' => 20,
 							'order' => 'asc',
-
+							'paged' => get_query_var('paged') ? get_query_var('paged') : 1
 						);
 
 						$query = new WP_Query($args);
@@ -209,7 +211,31 @@ get_header();
 							}
 						}
 						wp_reset_postdata(); // Reset the post data
+
+
+
 						?>
+
+						<div class="navigation">
+							<?php
+							global $wp_query;
+
+							$big = 999999999; // нужно большое число
+							$current = max(1, get_query_var('paged'));
+
+							echo paginate_links(
+								array(
+									'base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+									'format' => '?paged=%#%',
+									'current' => $current,
+									'total' => $wp_query->max_num_pages,
+									'prev_text' => '←',
+									'next_text' => '→',
+								)
+							);
+							?>
+						</div>
+
 					</ul>
 				</div>
 			</div>

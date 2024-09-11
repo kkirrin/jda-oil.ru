@@ -35,7 +35,7 @@
                     </a>
 
                     <div style="width: -webkit-fill-available;" class="flex gap-[30px] items-center md:justify-right sm:justify-between justify-end">
-                        <div class="text-dark-green md:block sm:block hidden">ПН — СБ с 10:00 до 17:00</div>
+                        <div class="text-dark-green md:block sm:block hidden"><?php echo get_field('work_time', 'option'); ?></div>
 
                         <div class="text-dark-green md:block sm:block hidden">
                             <a href="tel:+<?php echo get_field('phone_header-bot', "option"); ?>" class="list-disc"><?php echo get_field('phone_header', 'option'); ?></a>
@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="w-full md:hidden sm:hidden block relative border border-gray">
-                    <?php echo do_shortcode('[fibosearch]'); ?>
+                    <?php include 'live-search.php'; ?>
                 </div>
 
 
@@ -100,7 +100,7 @@
                             <div class="md:flex sm:flex hidden items-center">
                                 <div class="relative flex justify-evenly">
                                     <div>
-                                        <?php echo do_shortcode('[fibosearch]'); ?>
+                    <?php include 'live-search.php'; ?>
                                     </div>
                                 </div>
                             </div>
@@ -232,8 +232,9 @@
                                 <li class="pb-[15px]"><a href="/?page_id=17" class="link_menu text-dark-green text-[16px] link__hover">Новости</a></li>
                                 <li class="pb-[15px]"><a href="/?page_id=15" class="link_menu text-dark-green text-[16px] link__hover">Контакты</a></li>
 
-                                <li class="text-dark-green text-[16px] pb-[15px]">Пн — СБ с 10:00 до 18:00</li>
-                                <li class="pb-[15px]"><a href="+79841922217" class="text-dark-green text-[16px]">+7 (984) 192‒22‒17</a></li>
+                                <li class="text-dark-green text-[16px] pb-[15px]"><?php echo get_field('work_time', 'option'); ?></li>
+                                <!--<li class="pb-[15px]"><a href="+79841922217" class="text-dark-green text-[16px]">+7 (984) 192‒22‒17</a></li>-->
+                                <li class="pb-[15px]"><a href="tel:+<?php echo get_field('phone_header-bot', 'option'); ?>" class="text-dark-green text-[16px]"><?php echo get_field('phone_header', 'option'); ?></a></li>
 
                                 <div class="flex flex-col pb-[15px]">
                                     <p class="text-[16px] text-dark-green pb-[15px]">
