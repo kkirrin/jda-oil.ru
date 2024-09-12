@@ -46,13 +46,15 @@ get_header();
 				</div>
 
 				<div class="flex md:flex-row flex-col gap-[20px]">
-					<!-- <div>
-			
+					<div>
+
 						<?php echo do_shortcode('[wpf-filters id=2]') ?>
 					</div>
 					<div>
 						<?php echo do_shortcode('[wpf-filters id=3]'); ?>
-					</div> -->
+					</div>
+
+
 				</div>
 			</div>
 
