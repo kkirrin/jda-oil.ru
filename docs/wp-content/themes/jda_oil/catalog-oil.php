@@ -225,6 +225,13 @@
                                 'operator' => 'IN',
                             ),
                         ),
+                        'meta_query' => array(
+                            array(
+                                'key'     => 'product_title', // Предполагается, что вы имеете кастомное поле с заголовком
+                                'value'   => $viscosities, // Замените на нужное значение заголовка
+                                'compare' => '=', // Сравнение по равно
+                            ),
+                        ),
                     ));
 
                     foreach ($products as $product) {
@@ -232,6 +239,7 @@
                         $product_image = wp_get_attachment_url($product->get_image_id());
                         $product_link = $product->get_permalink();
                         $product_name = $product->get_name();
+
 
                         // echo '<pre>';
                         // var_dump($products);
