@@ -106,7 +106,7 @@
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-[20px] border-l border-gray md:justify-end justify-start" style="width: -webkit-fill-available;">
+                        <div class="flex items-center gap-[20px] border-l border-gray nav__blyat" style="width: -webkit-fill-available;">
                             <div class="md:block sm:hidden hidden ml-[30px]">
                                 <ul class="flex items-center gap-[40px]">
                                     <li><a href="/?page_id=17" class="link_menu text-dark-green">Новости</a></li>

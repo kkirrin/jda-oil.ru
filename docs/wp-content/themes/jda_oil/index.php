@@ -41,7 +41,7 @@
                                     // Отображаем слайд
                                     echo '
                     <div class="swiper-slide relative bg-black -z-10" style="background-image: url(' . esc_url($photo["url"]) . '); background-repeat: no-repeat; background-size: center; background-size: cover;">
-                        <div class="container text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10" style="min-height: 400px;">
+                        <div class="container container__for__sliders text-5xl md:text-9xl md:pt-[196px] pt-[176px] relative z-10">
                             <h2 class="text-start text-white z-10 font-medium md:text-[150px] text-[50px] uppercase">
                             </h2>
                         </div>

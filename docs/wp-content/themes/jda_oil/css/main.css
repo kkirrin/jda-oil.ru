@@ -14,6 +14,46 @@
   box-shadow: inset 0 -3.25em 0 0 #fcbc40;
 }
 
+
+@media screen and (min-width: 1000px) {
+     .container__for__sliders {
+        min-height: 400px;
+    }
+
+}
+
+
+.nav__blyat {
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 480px) {
+    .nav__blyat {
+            justify-content: flex-end;
+    }
+}
+
+
+@media screen and (max-width: 1000px) {
+    .container__for__sliders {
+        min-height: 264px;
+    }
+}
+
+@media screen and (max-width: 862px) {
+    .container__for__sliders {
+        min-height: 222px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .container__for__sliders {
+        min-height: 170px;
+    }
+}
+
+
+
 .btn__menu--mobile {
   --color:  #262626;
   height: 36px;
@@ -388,9 +428,28 @@
 
 #oil__main .oil__list {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
   gap: 22px;
   padding-top: 51px;
+}
+
+
+@media screen and (min-width: 1000px) {
+    #oil__main .oil__list {
+         grid-template-columns: repeat(4,1fr);
+    }
+    #oil__main .oil__list .oil__list-item .item-content .item-list .list--second {
+      padding: 10px 20px; 
+    }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 480px ){
+    #oil__main .oil__list {
+        grid-template-columns: repeat(3, 1fr) ;
+        gap: 5px;
+    }
+    #oil__main .oil__list .oil__list-item .item-content .item-list .list--second {
+        padding: 10px;
+    }
 }
 
 #oil__main .oil__list .oil__list-item {
@@ -486,7 +545,7 @@
   line-height: 100%;
   gap: 12px 0;
   font-weight: 500;
-  padding: 10px 20px;
+
 }
 
 #oil__main .oil__list .oil__list-item .item-img{
@@ -510,11 +569,11 @@
   padding: 10px 20px;
 }
 
-#oil__main .oil__list {
-  display: grid;
-  grid-template-columns: repeat(4,1fr);
-  gap: 22px;
-}
+/*#oil__main .oil__list {*/
+/*  display: grid;*/
+/*  grid-template-columns: repeat(4,1fr);*/
+/*  gap: 22px;*/
+/*}*/
 
 @media screen and (max-width: 769px) {
   #oil__main .oil__list {
@@ -3822,4 +3881,13 @@ table.table {
 
 .navigation {
   margin-top: 20px;
+}
+
+
+.u-columns.woocommerce-Addresses.col2-set.addresses.wpc--darkluplite-element.darkluplite--text-after.darkluplite--text-before h3 {
+  font-size: 20px;
+}
+
+.u-columns.woocommerce-Addresses.col2-set.addresses.wpc--darkluplite-element.darkluplite--text-after.darkluplite--text-before .edit.darkluplite--link{
+  font-size: 14px;
 }
